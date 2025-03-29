@@ -38,7 +38,7 @@ export const Route = createRootRouteWithContext<{
         title:
           'TanStack | High Quality Open-Source Software for Web Developers',
         description: `Headless, type-safe, powerful utilities for complex workflows like Data Management, Data Visualization, Charts, Tables, and UI Components.`,
-        image: `https://tanstack.com${ogImage}`,
+        image: `https://tanstack.cc${ogImage}`,
         keywords:
           'tanstack,react,reactjs,react query,react table,open source,open source software,oss,software',
       }),

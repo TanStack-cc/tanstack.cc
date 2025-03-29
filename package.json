@@ -1,8 +1,8 @@
 {
-  "name": "tanstack.com",
+  "name": "tanstack.cc",
   "private": true,
   "sideEffects": false,
-  "repository": "https://github.com/TanStack/tanstack.com.git",
+  "repository": "https://github.com/TanStack-cc/tanstack.cc.git",
   "packageManager": "pnpm@9.4.0",
   "type": "module",
   "scripts": {

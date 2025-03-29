@@ -157,10 +157,10 @@ export default function RouteComp() {
           <p>
             To exercise these rights, contact us at{' '}
             <a
-              href="mailto:support@tanstack.com"
+              href="mailto:support@tanstack.cc"
               className="text-blue-600 underline"
             >
-              support@tanstack.com
+              support@tanstack.cc
             </a>
             .
           </p>
@@ -210,10 +210,10 @@ export default function RouteComp() {
             <p>
               Email:{' '}
               <a
-                href="mailto:support@tanstack.com"
+                href="mailto:support@tanstack.cc"
                 className="text-blue-600 underline"
               >
-                support@tanstack.com
+                support@tanstack.cc
               </a>
             </p>
           </address>

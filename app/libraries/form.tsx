@@ -4,7 +4,7 @@ import { FaGithub, FaBolt, FaCogs } from 'react-icons/fa'
 import { BiBookAlt } from 'react-icons/bi'
 import { twMerge } from 'tailwind-merge'
 
-const repo = 'tanstack/form'
+const repo = 'tanstack-cc/form'
 
 const textStyles = 'text-yellow-600 dark:text-yellow-300'
 

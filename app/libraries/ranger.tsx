@@ -7,7 +7,7 @@ import { TbZoomQuestion } from 'react-icons/tb'
 import { RiLightbulbFlashLine } from 'react-icons/ri'
 import { twMerge } from 'tailwind-merge'
 
-const repo = 'tanstack/ranger'
+const repo = 'tanstack-cc/ranger'
 
 const textStyles = 'text-pink-600 dark:text-pink-400'
 

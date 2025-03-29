@@ -5,7 +5,7 @@ import { VscPreview, VscWand } from 'react-icons/vsc'
 import { BiBookAlt } from 'react-icons/bi'
 import { twMerge } from 'tailwind-merge'
 
-const repo = 'tanstack/query'
+const repo = 'tanstack-cc/query'
 
 const textStyles = 'text-red-500 dark:text-red-400'
 

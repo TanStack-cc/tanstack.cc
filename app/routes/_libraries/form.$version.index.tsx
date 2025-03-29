@@ -145,7 +145,7 @@ export default function FormVersionIndex() {
                 Form as we are? Let's push the boundaries of Form together!
               </div>
               <a
-                href="mailto:partners@tanstack.com?subject=TanStack Form Partnership"
+                href="mailto:partners@tanstack.cc?subject=TanStack Form Partnership"
                 className="text-blue-500 uppercase font-black text-sm"
               >
                 Let's chat

@@ -4,7 +4,7 @@ import { BiBookAlt } from 'react-icons/bi'
 import { VscWand } from 'react-icons/vsc'
 import { twMerge } from 'tailwind-merge'
 
-const repo = 'tanstack/config'
+const repo = 'tanstack-cc/config'
 
 const textStyles = 'text-gray-700 dark:text-gray-500'
 
