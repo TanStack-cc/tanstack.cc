@@ -125,14 +125,14 @@ export default function VersionIndex() {
             <FaBook /> Try the BETA
           </Link>
           <a
-            href={`https://github.com/tanstack/tanstack.cc`}
+            href={`https://github.com/tanstack/tanstack.dev`}
             className={`flex items-center gap-2 py-2 px-4 bg-cyan-700 rounded text-white uppercase font-extrabold`}
           >
             <FaGithub /> TanStack.com Source
           </a>
           <a
             href={`https://twitter.com/intent/post?text=${encodeURIComponent(
-              `TanStack Start is in BETA! It's a new full-stack React framework from @Tan_Stack and you can check it out at https://tanstack.cc/start/`
+              `TanStack Start is in BETA! It's a new full-stack React framework from @Tan_Stack and you can check it out at https://tanstack.dev/start/`
             )}`}
             target="_blank"
             className={`flex items-center gap-2 py-2 px-4 bg-cyan-500 rounded text-white uppercase font-extrabold`}

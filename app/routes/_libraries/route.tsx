@@ -239,7 +239,7 @@ function LibrariesLayout() {
           <TbBrandTwitter className="text-xl" />
         </a>
         <a
-          href="https://bsky.app/profile/tanstack.cc"
+          href="https://bsky.app/profile/tanstack.dev"
           className="opacity-70 hover:opacity-100"
         >
           <TbBrandBluesky className="text-xl" />

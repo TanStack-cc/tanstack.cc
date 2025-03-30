@@ -21,7 +21,7 @@ const fetchBlogPost = createServerFn({ method: 'GET' })
 
     const filePath = `app/blog/${docsPath}.md`
 
-    const file = await fetchRepoFile('tanstack-cc/tanstack.cc', 'main', filePath)
+    const file = await fetchRepoFile('tanstack-dev/tanstack.dev', 'main', filePath)
 
     if (!file) {
       throw notFound()
@@ -95,7 +95,7 @@ ${content}`
       <Doc
         title={title}
         content={blogContent}
-        repo={'tanstack-cc/tanstack.cc'}
+        repo={'tanstack-dev/tanstack.dev'}
         branch={'main'}
         filePath={filePath}
       />

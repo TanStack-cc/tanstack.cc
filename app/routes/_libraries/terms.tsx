@@ -220,10 +220,10 @@ export default function RouteComp() {
             <p>
               Email:{' '}
               <a
-                href="mailto:support@tanstack.cc"
+                href="mailto:support@tanstack.dev"
                 className="text-blue-600 underline"
               >
-                support@tanstack.cc
+                support@tanstack.dev
               </a>
             </p>
           </address>

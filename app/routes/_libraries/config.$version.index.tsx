@@ -116,7 +116,7 @@ export default function FormVersionIndex() {
                 Config as we are? Let's push the boundaries of Config together!
               </div>
               <a
-                href="mailto:partners@tanstack.cc?subject=TanStack Config Partnership"
+                href="mailto:partners@tanstack.dev?subject=TanStack Config Partnership"
                 className="text-blue-500 uppercase font-black text-sm"
               >
                 Let's chat

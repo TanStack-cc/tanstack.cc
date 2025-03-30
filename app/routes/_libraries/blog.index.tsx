@@ -19,7 +19,7 @@ const fetchFrontMatters = createServerFn({ method: 'GET' }).handler(
         const filePath = `app/blog/${info.id}.md`
 
         const file = await fetchRepoFile(
-          'tanstack-cc/tanstack.cc',
+          'tanstack-dev/tanstack.dev',
           'main',
           filePath
         )

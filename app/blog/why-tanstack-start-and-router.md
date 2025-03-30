@@ -69,6 +69,6 @@ What excites me most about TanStack is that we’re just getting started. From i
 
 Other frameworks have their strengths, but if you’re looking for tools that are innovative, flexible, and deeply integrated, TanStack Router and Start are in a league of their own. They’re not just solving today’s problems—they’re helping you build apps that are ready for tomorrow.
 
-So why wait? Explore [TanStack Router](https://tanstack.cc/router) and [TanStack Start](https://tanstack.cc/start) today, and see how much better app development can be.
+So why wait? Explore [TanStack Router](https://tanstack.dev/router) and [TanStack Start](https://tanstack.dev/start) today, and see how much better app development can be.
 
 Let’s build something amazing together!

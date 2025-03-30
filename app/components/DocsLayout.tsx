@@ -632,7 +632,7 @@ export function DocsLayout({
             {!partners.some((d) => d.libraries?.includes(libraryId as any)) ? (
               <div className="hover:bg-gray-500/10 dark:hover:bg-gray-500/10 transition-colors">
                 <a
-                  href={`mailto:partners@tanstack.cc?subject=TanStack ${
+                  href={`mailto:partners@tanstack.dev?subject=TanStack ${
                     repo.split('/')[1]
                   } Partnership`}
                   className="p-2 block text-xs"

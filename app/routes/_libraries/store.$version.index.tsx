@@ -92,7 +92,7 @@ export default function StoreVersionIndex() {
                 Store as we are? Let's push the boundaries of Store together!
               </div>
               <a
-                href="mailto:partners@tanstack.cc?subject=TanStack Store Partnership"
+                href="mailto:partners@tanstack.dev?subject=TanStack Store Partnership"
                 className="text-blue-500 uppercase font-black text-sm"
               >
                 Let's chat
