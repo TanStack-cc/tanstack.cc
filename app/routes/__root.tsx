@@ -44,7 +44,7 @@ export const Route = createRootRouteWithContext<{
       }),
       {
         name: 'google-adsense-account',
-        content: 'ca-pub-9403278435468733',
+        content: 'ca-pub-8237457949590602',
       },
     ],
     links: [
