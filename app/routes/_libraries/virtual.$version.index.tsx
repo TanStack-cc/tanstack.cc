@@ -188,7 +188,7 @@ export default function RouteComp() {
         </div>
       </div>
 
-      <div className="relative text-lg overflow-hidden">
+      {/* <div className="relative text-lg overflow-hidden">
         <h3 className="text-center text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl sm:leading-10 lg:leading-none mt-8">
           Sponsors
         </h3>
@@ -214,9 +214,9 @@ export default function RouteComp() {
             Become a Sponsor!
           </a>
         </div>
-      </div>
+      </div> */}
 
-      <div className="mx-auto max-w-[400px] flex flex-col gap-2 items-center">
+      {/* <div className="mx-auto max-w-[400px] flex flex-col gap-2 items-center">
         <div className="shadow-lg rounded-lg overflow-hidden bg-white dark:bg-gray-800 dark:text-white max-w-[250px] mx-auto">
           <Carbon />
         </div>
@@ -227,7 +227,7 @@ export default function RouteComp() {
           This ad helps us be happy about our invested time and not burn out and
           rage-quit OSS. Yay money! 😉
         </span>
-      </div>
+      </div> */}
 
       <div className="flex flex-col gap-4">
         <div className="px-4 sm:px-6 lg:px-8  mx-auto container max-w-3xl sm:text-center">

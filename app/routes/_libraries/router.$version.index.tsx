@@ -75,7 +75,7 @@ function RouterVersionIndex() {
         </Link>
       </div>
       <LibraryFeatureHighlights featureHighlights={library.featureHighlights} />
-      <div className="px-4 lg:max-w-screen-lg md:mx-auto mx-auto">
+      {/* <div className="px-4 lg:max-w-screen-lg md:mx-auto mx-auto">
         <h3 className="text-center text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl sm:leading-10 lg:leading-none mt-8">
           Partners
         </h3>
@@ -102,7 +102,7 @@ function RouterVersionIndex() {
               )
             })}
         </div>
-      </div>
+      </div> */}
 
       <div className="px-4 sm:px-6 lg:px-8 mx-auto">
         <div className=" sm:text-center pb-16">
@@ -155,7 +155,7 @@ function RouterVersionIndex() {
         </span>
       </div> */}
 
-      <div className="relative text-lg overflow-hidden">
+      {/* <div className="relative text-lg overflow-hidden">
         <h3 className="text-center text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl sm:leading-10 lg:leading-none mt-8">
           Sponsors
         </h3>
@@ -181,7 +181,7 @@ function RouterVersionIndex() {
             Become a Sponsor!
           </a>
         </div>
-      </div>
+      </div> */}
 
       <div>
         <div className="flex flex-col gap-4">
