@@ -8,7 +8,7 @@ import { TbZoomQuestion } from 'react-icons/tb'
 import { twMerge } from 'tailwind-merge'
 import { redirect } from '@tanstack/react-router'
 
-const repo = 'tanstack-cc/router'
+const repo = 'tanstack-dev/router'
 
 const textStyles = 'text-emerald-500 dark:text-emerald-400'
 

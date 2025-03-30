@@ -4,7 +4,7 @@ import { FaGithub, FaBolt, FaCogs } from 'react-icons/fa'
 import { BiBookAlt } from 'react-icons/bi'
 import { twMerge } from 'tailwind-merge'
 
-const repo = 'tanstack-cc/store'
+const repo = 'tanstack-dev/store'
 
 const textStyles = 'text-twine-600 dark:text-twine-500'
 

@@ -5,7 +5,7 @@ import { BiBookAlt } from 'react-icons/bi'
 import { IoIosBody } from 'react-icons/io'
 import { twMerge } from 'tailwind-merge'
 
-const repo = 'tanstack-cc/virtual'
+const repo = 'tanstack-dev/virtual'
 
 const textStyles = 'text-violet-700 dark:text-violet-400'
 

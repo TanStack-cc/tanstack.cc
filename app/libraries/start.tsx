@@ -6,7 +6,7 @@ import { PiRocketLaunchDuotone, PiTreeStructureBold } from 'react-icons/pi'
 import { TbServerBolt } from 'react-icons/tb'
 import { twMerge } from 'tailwind-merge'
 
-const repo = 'tanstack-cc/router'
+const repo = 'tanstack-dev/router'
 
 const textStyles = 'text-cyan-600 dark:text-cyan-500'
 
