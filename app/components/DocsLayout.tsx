@@ -623,7 +623,7 @@ export function DocsLayout({
           </div>
         </div>
       </div>
-      <div className="-ml-2 pl-2 w-[290px] xl:w-[340px] shrink-0 hidden md:block sticky top-0 max-h-screen overflow-y-auto">
+      {/* <div className="-ml-2 pl-2 w-[290px] xl:w-[340px] shrink-0 hidden md:block sticky top-0 max-h-screen overflow-y-auto">
         <div className="ml-auto flex flex-col space-y-4">
           <div className="bg-white dark:bg-black/40 border-gray-500/20 shadow-xl divide-y divide-gray-500/20 flex flex-col border border-r-0 border-t-0 rounded-bl-lg">
             <div className="uppercase font-black text-center p-3 opacity-50">
@@ -757,7 +757,7 @@ export function DocsLayout({
             )}
           </div>
         </button>
-      )}
+      )} */}
     </div>
   )
 }
