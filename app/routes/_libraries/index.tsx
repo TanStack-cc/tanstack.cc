@@ -218,7 +218,8 @@ function Index() {
             })}
           </div>
         </div>
-        <div className="h-12" />
+        {/* Partners are disabled for now */}
+        {/* <div className="h-12" />
         <div className={`px-4 lg:max-w-screen-lg md:mx-auto`}>
           <h3 className={`text-4xl font-light mb-4`}>Partners</h3>
           <div className={`grid grid-cols-1 gap-6 sm:grid-cols-2`}>
@@ -241,8 +242,9 @@ function Index() {
               )
             })}
           </div>
-        </div>
-        <div className="h-20" />
+        </div> */}
+        {/* Courses are disabled for now */}
+        {/* <div className="h-20" />
         <div className={`lg:max-w-screen-lg px-4 mx-auto`}>
           <h3 className={`text-4xl font-light`}>Courses</h3>
           <div className={`mt-4 grid grid-cols-1 gap-4`}>
@@ -275,8 +277,9 @@ function Index() {
               </a>
             ))}
           </div>
-        </div>
-        <div className="h-12" />
+        </div> */}
+        {/* Sponsors are disabled for now */}
+        {/* <div className="h-12" />
         <div className={`lg:max-w-screen-lg px-4 mx-auto`}>
           <h3 className={`text-4xl font-light`}>OSS Sponsors</h3>
           <div className="h-4" />
@@ -370,8 +373,9 @@ function Index() {
               </a>
             </div>
           </div>
-        </div>
-        <div className="h-4" />
+        </div> */}
+        {/* Newsletter is disabled for now */}
+        {/* <div className="h-4" />
         <div className="px-4 mx-auto max-w-screen-lg relative">
           <div className="rounded-md p-8 bg-white shadow-xl shadow-gray-900/10 md:p-14 dark:bg-black/40">
             {!bytesSignupMutation.submittedAt ? (
@@ -438,7 +442,7 @@ function Index() {
               <p>🎉 Thank you! Please confirm your email</p>
             )}
           </div>
-        </div>
+        </div> */}
         <div className={`h-20`} />
         <Footer />
       </div>
