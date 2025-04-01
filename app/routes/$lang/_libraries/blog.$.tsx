@@ -13,13 +13,16 @@ import { DocContainer } from '~/components/DocContainer'
 import { setHeaders } from 'vinxi/http'
 
 const fetchBlogPost = createServerFn({ method: 'GET' })
-  .validator(z.string().optional())
-  .handler(async ({ data: docsPath }) => {
+  .validator(z.object({
+    lang: z.string().optional(),
+    docsPath: z.string().optional()
+  }))
+  .handler(async ({ data: { lang = 'en', docsPath } }) => {
     if (!docsPath) {
       throw new Error('Invalid docs path')
     }
 
-    const filePath = `app/blog/${docsPath}.md`
+    const filePath = lang === 'en' ? `app/blog/${docsPath}.md` : `app/blog/${lang}/${docsPath}.md`
 
     const file = await fetchRepoFile('tanstack-dev/tanstack.dev', 'main', filePath)
 
@@ -48,7 +51,7 @@ const fetchBlogPost = createServerFn({ method: 'GET' })
 
 export const Route = createFileRoute('/$lang/_libraries/blog/$')({
   staleTime: Infinity,
-  loader: ({ params }) => fetchBlogPost({ data: params._splat }),
+  loader: ({ params }) => fetchBlogPost({ data: { lang: params.lang, docsPath: params._splat } }),
   head: ({ loaderData }) => {
     return {
       meta: loaderData

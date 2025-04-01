@@ -9,14 +9,17 @@ import { extractFrontMatter, fetchRepoFile } from '~/utils/documents.server'
 import { PostNotFound } from './blog'
 import { createServerFn } from '@tanstack/start'
 import { setHeaders } from 'vinxi/http'
+import { z } from 'zod'
 
-const fetchFrontMatters = createServerFn({ method: 'GET' }).handler(
-  async () => {
+const fetchFrontMatters = createServerFn({ method: 'GET' })
+.validator(z.string().optional())
+.handler(
+  async ({ data: lang  = 'en'}) => {
     const postInfos = getPostList()
 
     const frontMatters = await Promise.all(
       postInfos.map(async (info) => {
-        const filePath = `app/blog/${info.id}.md`
+        const filePath = lang === 'en' ? `app/blog/${info.id}.md` : `app/blog/${lang}/${info.id}.md`
 
         const file = await fetchRepoFile(
           'tanstack-dev/tanstack.dev',
@@ -70,7 +73,7 @@ const fetchFrontMatters = createServerFn({ method: 'GET' }).handler(
 
 export const Route = createFileRoute('/$lang/_libraries/blog/')({
   staleTime: Infinity,
-  loader: () => fetchFrontMatters(),
+  loader: ({ params }) => fetchFrontMatters({data: params.lang}),
   notFoundComponent: () => <PostNotFound />,
   component: BlogIndex,
   head: () => ({
