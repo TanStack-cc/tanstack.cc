@@ -322,7 +322,7 @@ export function DocsLayout({
   children,
 }: DocsLayoutProps) {
   const { libraryId } = useParams({
-    from: '/$libraryId/$version/docs',
+    from: '/$lang/$libraryId/$version/docs',
   })
   const frameworkConfig = useFrameworkConfig({ frameworks })
   const versionConfig = useVersionConfig({ versions })

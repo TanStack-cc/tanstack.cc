@@ -8,53 +8,60 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { createFileRoute } from '@tanstack/react-router'
+
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as SponsorsEmbedImport } from './routes/sponsors-embed'
-import { Route as MerchImport } from './routes/merch'
 import { Route as LoginImport } from './routes/login'
 import { Route as DashboardImport } from './routes/dashboard'
-import { Route as LibrariesRouteImport } from './routes/_libraries/route'
-import { Route as LibraryIdRouteImport } from './routes/$libraryId/route'
-import { Route as LibrariesIndexImport } from './routes/_libraries/index'
-import { Route as LibraryIdIndexImport } from './routes/$libraryId/index'
-import { Route as LibrariesTermsImport } from './routes/_libraries/terms'
-import { Route as LibrariesSupportImport } from './routes/_libraries/support'
-import { Route as LibrariesPrivacyImport } from './routes/_libraries/privacy'
-import { Route as LibrariesLearnImport } from './routes/_libraries/learn'
-import { Route as LibrariesEthosImport } from './routes/_libraries/ethos'
-import { Route as LibrariesDedicatedSupportImport } from './routes/_libraries/dedicated-support'
-import { Route as LibrariesBlogImport } from './routes/_libraries/blog'
-import { Route as LibraryIdVersionImport } from './routes/$libraryId/$version'
-import { Route as LibrariesBlogIndexImport } from './routes/_libraries/blog.index'
-import { Route as LibrariesBlogSplatImport } from './routes/_libraries/blog.$'
-import { Route as LibraryIdVersionDocsImport } from './routes/$libraryId/$version.docs'
-import { Route as LibrariesVirtualVersionIndexImport } from './routes/_libraries/virtual.$version.index'
-import { Route as LibrariesTableVersionIndexImport } from './routes/_libraries/table.$version.index'
-import { Route as LibrariesStoreVersionIndexImport } from './routes/_libraries/store.$version.index'
-import { Route as LibrariesStartVersionIndexImport } from './routes/_libraries/start.$version.index'
-import { Route as LibrariesRouterVersionIndexImport } from './routes/_libraries/router.$version.index'
-import { Route as LibrariesRangerVersionIndexImport } from './routes/_libraries/ranger.$version.index'
-import { Route as LibrariesQueryVersionIndexImport } from './routes/_libraries/query.$version.index'
-import { Route as LibrariesFormVersionIndexImport } from './routes/_libraries/form.$version.index'
-import { Route as LibrariesConfigVersionIndexImport } from './routes/_libraries/config.$version.index'
-import { Route as LibraryIdVersionDocsIndexImport } from './routes/$libraryId/$version.docs.index'
-import { Route as LibraryIdVersionDocsSplatImport } from './routes/$libraryId/$version.docs.$'
-import { Route as LibraryIdVersionDocsFrameworkFrameworkSplatImport } from './routes/$libraryId/$version.docs.framework.$framework.$'
-import { Route as LibraryIdVersionDocsFrameworkFrameworkExamplesSplatImport } from './routes/$libraryId/$version.docs.framework.$framework.examples.$'
+import { Route as IndexImport } from './routes/index'
+import { Route as LangLibrariesRouteImport } from './routes/$lang/_libraries/route'
+import { Route as LangLibraryIdRouteImport } from './routes/$lang/$libraryId/route'
+import { Route as LangLibrariesIndexImport } from './routes/$lang/_libraries/index'
+import { Route as LangLibraryIdIndexImport } from './routes/$lang/$libraryId/index'
+import { Route as LangLibrariesTermsImport } from './routes/$lang/_libraries/terms'
+import { Route as LangLibrariesSupportImport } from './routes/$lang/_libraries/support'
+import { Route as LangLibrariesPrivacyImport } from './routes/$lang/_libraries/privacy'
+import { Route as LangLibrariesMerchImport } from './routes/$lang/_libraries/merch'
+import { Route as LangLibrariesLearnImport } from './routes/$lang/_libraries/learn'
+import { Route as LangLibrariesEthosImport } from './routes/$lang/_libraries/ethos'
+import { Route as LangLibrariesDedicatedSupportImport } from './routes/$lang/_libraries/dedicated-support'
+import { Route as LangLibrariesBlogImport } from './routes/$lang/_libraries/blog'
+import { Route as LangLibraryIdVersionImport } from './routes/$lang/$libraryId/$version'
+import { Route as LangLibrariesBlogIndexImport } from './routes/$lang/_libraries/blog.index'
+import { Route as LangLibrariesBlogSplatImport } from './routes/$lang/_libraries/blog.$'
+import { Route as LangLibraryIdVersionDocsImport } from './routes/$lang/$libraryId/$version.docs'
+import { Route as LangLibrariesVirtualVersionIndexImport } from './routes/$lang/_libraries/virtual.$version.index'
+import { Route as LangLibrariesTableVersionIndexImport } from './routes/$lang/_libraries/table.$version.index'
+import { Route as LangLibrariesStoreVersionIndexImport } from './routes/$lang/_libraries/store.$version.index'
+import { Route as LangLibrariesStartVersionIndexImport } from './routes/$lang/_libraries/start.$version.index'
+import { Route as LangLibrariesRouterVersionIndexImport } from './routes/$lang/_libraries/router.$version.index'
+import { Route as LangLibrariesRangerVersionIndexImport } from './routes/$lang/_libraries/ranger.$version.index'
+import { Route as LangLibrariesQueryVersionIndexImport } from './routes/$lang/_libraries/query.$version.index'
+import { Route as LangLibrariesFormVersionIndexImport } from './routes/$lang/_libraries/form.$version.index'
+import { Route as LangLibrariesConfigVersionIndexImport } from './routes/$lang/_libraries/config.$version.index'
+import { Route as LangLibraryIdVersionDocsIndexImport } from './routes/$lang/$libraryId/$version.docs.index'
+import { Route as LangLibraryIdVersionDocsSplatImport } from './routes/$lang/$libraryId/$version.docs.$'
+import { Route as LangLibraryIdVersionDocsFrameworkFrameworkSplatImport } from './routes/$lang/$libraryId/$version.docs.framework.$framework.$'
+import { Route as LangLibraryIdVersionDocsFrameworkFrameworkExamplesSplatImport } from './routes/$lang/$libraryId/$version.docs.framework.$framework.examples.$'
+
+// Create Virtual Routes
+
+const LangImport = createFileRoute('/$lang')()
 
 // Create/Update Routes
+
+const LangRoute = LangImport.update({
+  id: '/$lang',
+  path: '/$lang',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const SponsorsEmbedRoute = SponsorsEmbedImport.update({
   id: '/sponsors-embed',
   path: '/sponsors-embed',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const MerchRoute = MerchImport.update({
-  id: '/merch',
-  path: '/merch',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -70,203 +77,208 @@ const DashboardRoute = DashboardImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const LibrariesRouteRoute = LibrariesRouteImport.update({
+const IndexRoute = IndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LangLibrariesRouteRoute = LangLibrariesRouteImport.update({
   id: '/_libraries',
+  getParentRoute: () => LangRoute,
+} as any)
+
+const LangLibraryIdRouteRoute = LangLibraryIdRouteImport.update({
+  id: '/$lang/$libraryId',
+  path: '/$lang/$libraryId',
   getParentRoute: () => rootRoute,
 } as any)
 
-const LibraryIdRouteRoute = LibraryIdRouteImport.update({
-  id: '/$libraryId',
-  path: '/$libraryId',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const LibrariesIndexRoute = LibrariesIndexImport.update({
+const LangLibrariesIndexRoute = LangLibrariesIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => LibrariesRouteRoute,
+  getParentRoute: () => LangLibrariesRouteRoute,
 } as any)
 
-const LibraryIdIndexRoute = LibraryIdIndexImport.update({
+const LangLibraryIdIndexRoute = LangLibraryIdIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => LibraryIdRouteRoute,
+  getParentRoute: () => LangLibraryIdRouteRoute,
 } as any)
 
-const LibrariesTermsRoute = LibrariesTermsImport.update({
+const LangLibrariesTermsRoute = LangLibrariesTermsImport.update({
   id: '/terms',
   path: '/terms',
-  getParentRoute: () => LibrariesRouteRoute,
+  getParentRoute: () => LangLibrariesRouteRoute,
 } as any)
 
-const LibrariesSupportRoute = LibrariesSupportImport.update({
+const LangLibrariesSupportRoute = LangLibrariesSupportImport.update({
   id: '/support',
   path: '/support',
-  getParentRoute: () => LibrariesRouteRoute,
+  getParentRoute: () => LangLibrariesRouteRoute,
 } as any)
 
-const LibrariesPrivacyRoute = LibrariesPrivacyImport.update({
+const LangLibrariesPrivacyRoute = LangLibrariesPrivacyImport.update({
   id: '/privacy',
   path: '/privacy',
-  getParentRoute: () => LibrariesRouteRoute,
+  getParentRoute: () => LangLibrariesRouteRoute,
 } as any)
 
-const LibrariesLearnRoute = LibrariesLearnImport.update({
+const LangLibrariesMerchRoute = LangLibrariesMerchImport.update({
+  id: '/merch',
+  path: '/merch',
+  getParentRoute: () => LangLibrariesRouteRoute,
+} as any)
+
+const LangLibrariesLearnRoute = LangLibrariesLearnImport.update({
   id: '/learn',
   path: '/learn',
-  getParentRoute: () => LibrariesRouteRoute,
+  getParentRoute: () => LangLibrariesRouteRoute,
 } as any)
 
-const LibrariesEthosRoute = LibrariesEthosImport.update({
+const LangLibrariesEthosRoute = LangLibrariesEthosImport.update({
   id: '/ethos',
   path: '/ethos',
-  getParentRoute: () => LibrariesRouteRoute,
+  getParentRoute: () => LangLibrariesRouteRoute,
 } as any)
 
-const LibrariesDedicatedSupportRoute = LibrariesDedicatedSupportImport.update({
-  id: '/dedicated-support',
-  path: '/dedicated-support',
-  getParentRoute: () => LibrariesRouteRoute,
-} as any)
+const LangLibrariesDedicatedSupportRoute =
+  LangLibrariesDedicatedSupportImport.update({
+    id: '/dedicated-support',
+    path: '/dedicated-support',
+    getParentRoute: () => LangLibrariesRouteRoute,
+  } as any)
 
-const LibrariesBlogRoute = LibrariesBlogImport.update({
+const LangLibrariesBlogRoute = LangLibrariesBlogImport.update({
   id: '/blog',
   path: '/blog',
-  getParentRoute: () => LibrariesRouteRoute,
+  getParentRoute: () => LangLibrariesRouteRoute,
 } as any)
 
-const LibraryIdVersionRoute = LibraryIdVersionImport.update({
+const LangLibraryIdVersionRoute = LangLibraryIdVersionImport.update({
   id: '/$version',
   path: '/$version',
-  getParentRoute: () => LibraryIdRouteRoute,
+  getParentRoute: () => LangLibraryIdRouteRoute,
 } as any)
 
-const LibrariesBlogIndexRoute = LibrariesBlogIndexImport.update({
+const LangLibrariesBlogIndexRoute = LangLibrariesBlogIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => LibrariesBlogRoute,
+  getParentRoute: () => LangLibrariesBlogRoute,
 } as any)
 
-const LibrariesBlogSplatRoute = LibrariesBlogSplatImport.update({
+const LangLibrariesBlogSplatRoute = LangLibrariesBlogSplatImport.update({
   id: '/$',
   path: '/$',
-  getParentRoute: () => LibrariesBlogRoute,
+  getParentRoute: () => LangLibrariesBlogRoute,
 } as any)
 
-const LibraryIdVersionDocsRoute = LibraryIdVersionDocsImport.update({
+const LangLibraryIdVersionDocsRoute = LangLibraryIdVersionDocsImport.update({
   id: '/docs',
   path: '/docs',
-  getParentRoute: () => LibraryIdVersionRoute,
+  getParentRoute: () => LangLibraryIdVersionRoute,
 } as any)
 
-const LibrariesVirtualVersionIndexRoute =
-  LibrariesVirtualVersionIndexImport.update({
+const LangLibrariesVirtualVersionIndexRoute =
+  LangLibrariesVirtualVersionIndexImport.update({
     id: '/virtual/$version/',
     path: '/virtual/$version/',
-    getParentRoute: () => LibrariesRouteRoute,
+    getParentRoute: () => LangLibrariesRouteRoute,
   } as any)
 
-const LibrariesTableVersionIndexRoute = LibrariesTableVersionIndexImport.update(
-  {
+const LangLibrariesTableVersionIndexRoute =
+  LangLibrariesTableVersionIndexImport.update({
     id: '/table/$version/',
     path: '/table/$version/',
-    getParentRoute: () => LibrariesRouteRoute,
-  } as any,
-)
+    getParentRoute: () => LangLibrariesRouteRoute,
+  } as any)
 
-const LibrariesStoreVersionIndexRoute = LibrariesStoreVersionIndexImport.update(
-  {
+const LangLibrariesStoreVersionIndexRoute =
+  LangLibrariesStoreVersionIndexImport.update({
     id: '/store/$version/',
     path: '/store/$version/',
-    getParentRoute: () => LibrariesRouteRoute,
-  } as any,
-)
+    getParentRoute: () => LangLibrariesRouteRoute,
+  } as any)
 
-const LibrariesStartVersionIndexRoute = LibrariesStartVersionIndexImport.update(
-  {
+const LangLibrariesStartVersionIndexRoute =
+  LangLibrariesStartVersionIndexImport.update({
     id: '/start/$version/',
     path: '/start/$version/',
-    getParentRoute: () => LibrariesRouteRoute,
-  } as any,
-)
+    getParentRoute: () => LangLibrariesRouteRoute,
+  } as any)
 
-const LibrariesRouterVersionIndexRoute =
-  LibrariesRouterVersionIndexImport.update({
+const LangLibrariesRouterVersionIndexRoute =
+  LangLibrariesRouterVersionIndexImport.update({
     id: '/router/$version/',
     path: '/router/$version/',
-    getParentRoute: () => LibrariesRouteRoute,
+    getParentRoute: () => LangLibrariesRouteRoute,
   } as any)
 
-const LibrariesRangerVersionIndexRoute =
-  LibrariesRangerVersionIndexImport.update({
+const LangLibrariesRangerVersionIndexRoute =
+  LangLibrariesRangerVersionIndexImport.update({
     id: '/ranger/$version/',
     path: '/ranger/$version/',
-    getParentRoute: () => LibrariesRouteRoute,
+    getParentRoute: () => LangLibrariesRouteRoute,
   } as any)
 
-const LibrariesQueryVersionIndexRoute = LibrariesQueryVersionIndexImport.update(
-  {
+const LangLibrariesQueryVersionIndexRoute =
+  LangLibrariesQueryVersionIndexImport.update({
     id: '/query/$version/',
     path: '/query/$version/',
-    getParentRoute: () => LibrariesRouteRoute,
-  } as any,
-)
+    getParentRoute: () => LangLibrariesRouteRoute,
+  } as any)
 
-const LibrariesFormVersionIndexRoute = LibrariesFormVersionIndexImport.update({
-  id: '/form/$version/',
-  path: '/form/$version/',
-  getParentRoute: () => LibrariesRouteRoute,
-} as any)
+const LangLibrariesFormVersionIndexRoute =
+  LangLibrariesFormVersionIndexImport.update({
+    id: '/form/$version/',
+    path: '/form/$version/',
+    getParentRoute: () => LangLibrariesRouteRoute,
+  } as any)
 
-const LibrariesConfigVersionIndexRoute =
-  LibrariesConfigVersionIndexImport.update({
+const LangLibrariesConfigVersionIndexRoute =
+  LangLibrariesConfigVersionIndexImport.update({
     id: '/config/$version/',
     path: '/config/$version/',
-    getParentRoute: () => LibrariesRouteRoute,
+    getParentRoute: () => LangLibrariesRouteRoute,
   } as any)
 
-const LibraryIdVersionDocsIndexRoute = LibraryIdVersionDocsIndexImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => LibraryIdVersionDocsRoute,
-} as any)
+const LangLibraryIdVersionDocsIndexRoute =
+  LangLibraryIdVersionDocsIndexImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => LangLibraryIdVersionDocsRoute,
+  } as any)
 
-const LibraryIdVersionDocsSplatRoute = LibraryIdVersionDocsSplatImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => LibraryIdVersionDocsRoute,
-} as any)
+const LangLibraryIdVersionDocsSplatRoute =
+  LangLibraryIdVersionDocsSplatImport.update({
+    id: '/$',
+    path: '/$',
+    getParentRoute: () => LangLibraryIdVersionDocsRoute,
+  } as any)
 
-const LibraryIdVersionDocsFrameworkFrameworkSplatRoute =
-  LibraryIdVersionDocsFrameworkFrameworkSplatImport.update({
+const LangLibraryIdVersionDocsFrameworkFrameworkSplatRoute =
+  LangLibraryIdVersionDocsFrameworkFrameworkSplatImport.update({
     id: '/framework/$framework/$',
     path: '/framework/$framework/$',
-    getParentRoute: () => LibraryIdVersionDocsRoute,
+    getParentRoute: () => LangLibraryIdVersionDocsRoute,
   } as any)
 
-const LibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute =
-  LibraryIdVersionDocsFrameworkFrameworkExamplesSplatImport.update({
+const LangLibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute =
+  LangLibraryIdVersionDocsFrameworkFrameworkExamplesSplatImport.update({
     id: '/framework/$framework/examples/$',
     path: '/framework/$framework/examples/$',
-    getParentRoute: () => LibraryIdVersionDocsRoute,
+    getParentRoute: () => LangLibraryIdVersionDocsRoute,
   } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/$libraryId': {
-      id: '/$libraryId'
-      path: '/$libraryId'
-      fullPath: '/$libraryId'
-      preLoaderRoute: typeof LibraryIdRouteImport
-      parentRoute: typeof rootRoute
-    }
-    '/_libraries': {
-      id: '/_libraries'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof LibrariesRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
     '/dashboard': {
@@ -283,13 +295,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
     }
-    '/merch': {
-      id: '/merch'
-      path: '/merch'
-      fullPath: '/merch'
-      preLoaderRoute: typeof MerchImport
-      parentRoute: typeof rootRoute
-    }
     '/sponsors-embed': {
       id: '/sponsors-embed'
       path: '/sponsors-embed'
@@ -297,515 +302,563 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SponsorsEmbedImport
       parentRoute: typeof rootRoute
     }
-    '/$libraryId/$version': {
-      id: '/$libraryId/$version'
+    '/$lang/$libraryId': {
+      id: '/$lang/$libraryId'
+      path: '/$lang/$libraryId'
+      fullPath: '/$lang/$libraryId'
+      preLoaderRoute: typeof LangLibraryIdRouteImport
+      parentRoute: typeof rootRoute
+    }
+    '/$lang': {
+      id: '/$lang'
+      path: '/$lang'
+      fullPath: '/$lang'
+      preLoaderRoute: typeof LangImport
+      parentRoute: typeof rootRoute
+    }
+    '/$lang/_libraries': {
+      id: '/$lang/_libraries'
+      path: '/$lang'
+      fullPath: '/$lang'
+      preLoaderRoute: typeof LangLibrariesRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/$libraryId/$version': {
+      id: '/$lang/$libraryId/$version'
       path: '/$version'
-      fullPath: '/$libraryId/$version'
-      preLoaderRoute: typeof LibraryIdVersionImport
-      parentRoute: typeof LibraryIdRouteImport
+      fullPath: '/$lang/$libraryId/$version'
+      preLoaderRoute: typeof LangLibraryIdVersionImport
+      parentRoute: typeof LangLibraryIdRouteImport
     }
-    '/_libraries/blog': {
-      id: '/_libraries/blog'
+    '/$lang/_libraries/blog': {
+      id: '/$lang/_libraries/blog'
       path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof LibrariesBlogImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/blog'
+      preLoaderRoute: typeof LangLibrariesBlogImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/dedicated-support': {
-      id: '/_libraries/dedicated-support'
+    '/$lang/_libraries/dedicated-support': {
+      id: '/$lang/_libraries/dedicated-support'
       path: '/dedicated-support'
-      fullPath: '/dedicated-support'
-      preLoaderRoute: typeof LibrariesDedicatedSupportImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/dedicated-support'
+      preLoaderRoute: typeof LangLibrariesDedicatedSupportImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/ethos': {
-      id: '/_libraries/ethos'
+    '/$lang/_libraries/ethos': {
+      id: '/$lang/_libraries/ethos'
       path: '/ethos'
-      fullPath: '/ethos'
-      preLoaderRoute: typeof LibrariesEthosImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/ethos'
+      preLoaderRoute: typeof LangLibrariesEthosImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/learn': {
-      id: '/_libraries/learn'
+    '/$lang/_libraries/learn': {
+      id: '/$lang/_libraries/learn'
       path: '/learn'
-      fullPath: '/learn'
-      preLoaderRoute: typeof LibrariesLearnImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/learn'
+      preLoaderRoute: typeof LangLibrariesLearnImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/privacy': {
-      id: '/_libraries/privacy'
+    '/$lang/_libraries/merch': {
+      id: '/$lang/_libraries/merch'
+      path: '/merch'
+      fullPath: '/$lang/merch'
+      preLoaderRoute: typeof LangLibrariesMerchImport
+      parentRoute: typeof LangLibrariesRouteImport
+    }
+    '/$lang/_libraries/privacy': {
+      id: '/$lang/_libraries/privacy'
       path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof LibrariesPrivacyImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/privacy'
+      preLoaderRoute: typeof LangLibrariesPrivacyImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/support': {
-      id: '/_libraries/support'
+    '/$lang/_libraries/support': {
+      id: '/$lang/_libraries/support'
       path: '/support'
-      fullPath: '/support'
-      preLoaderRoute: typeof LibrariesSupportImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/support'
+      preLoaderRoute: typeof LangLibrariesSupportImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/terms': {
-      id: '/_libraries/terms'
+    '/$lang/_libraries/terms': {
+      id: '/$lang/_libraries/terms'
       path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof LibrariesTermsImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/terms'
+      preLoaderRoute: typeof LangLibrariesTermsImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/$libraryId/': {
-      id: '/$libraryId/'
+    '/$lang/$libraryId/': {
+      id: '/$lang/$libraryId/'
       path: '/'
-      fullPath: '/$libraryId/'
-      preLoaderRoute: typeof LibraryIdIndexImport
-      parentRoute: typeof LibraryIdRouteImport
+      fullPath: '/$lang/$libraryId/'
+      preLoaderRoute: typeof LangLibraryIdIndexImport
+      parentRoute: typeof LangLibraryIdRouteImport
     }
-    '/_libraries/': {
-      id: '/_libraries/'
+    '/$lang/_libraries/': {
+      id: '/$lang/_libraries/'
       path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof LibrariesIndexImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/'
+      preLoaderRoute: typeof LangLibrariesIndexImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/$libraryId/$version/docs': {
-      id: '/$libraryId/$version/docs'
+    '/$lang/$libraryId/$version/docs': {
+      id: '/$lang/$libraryId/$version/docs'
       path: '/docs'
-      fullPath: '/$libraryId/$version/docs'
-      preLoaderRoute: typeof LibraryIdVersionDocsImport
-      parentRoute: typeof LibraryIdVersionImport
+      fullPath: '/$lang/$libraryId/$version/docs'
+      preLoaderRoute: typeof LangLibraryIdVersionDocsImport
+      parentRoute: typeof LangLibraryIdVersionImport
     }
-    '/_libraries/blog/$': {
-      id: '/_libraries/blog/$'
+    '/$lang/_libraries/blog/$': {
+      id: '/$lang/_libraries/blog/$'
       path: '/$'
-      fullPath: '/blog/$'
-      preLoaderRoute: typeof LibrariesBlogSplatImport
-      parentRoute: typeof LibrariesBlogImport
+      fullPath: '/$lang/blog/$'
+      preLoaderRoute: typeof LangLibrariesBlogSplatImport
+      parentRoute: typeof LangLibrariesBlogImport
     }
-    '/_libraries/blog/': {
-      id: '/_libraries/blog/'
+    '/$lang/_libraries/blog/': {
+      id: '/$lang/_libraries/blog/'
       path: '/'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof LibrariesBlogIndexImport
-      parentRoute: typeof LibrariesBlogImport
+      fullPath: '/$lang/blog/'
+      preLoaderRoute: typeof LangLibrariesBlogIndexImport
+      parentRoute: typeof LangLibrariesBlogImport
     }
-    '/$libraryId/$version/docs/$': {
-      id: '/$libraryId/$version/docs/$'
+    '/$lang/$libraryId/$version/docs/$': {
+      id: '/$lang/$libraryId/$version/docs/$'
       path: '/$'
-      fullPath: '/$libraryId/$version/docs/$'
-      preLoaderRoute: typeof LibraryIdVersionDocsSplatImport
-      parentRoute: typeof LibraryIdVersionDocsImport
+      fullPath: '/$lang/$libraryId/$version/docs/$'
+      preLoaderRoute: typeof LangLibraryIdVersionDocsSplatImport
+      parentRoute: typeof LangLibraryIdVersionDocsImport
     }
-    '/$libraryId/$version/docs/': {
-      id: '/$libraryId/$version/docs/'
+    '/$lang/$libraryId/$version/docs/': {
+      id: '/$lang/$libraryId/$version/docs/'
       path: '/'
-      fullPath: '/$libraryId/$version/docs/'
-      preLoaderRoute: typeof LibraryIdVersionDocsIndexImport
-      parentRoute: typeof LibraryIdVersionDocsImport
+      fullPath: '/$lang/$libraryId/$version/docs/'
+      preLoaderRoute: typeof LangLibraryIdVersionDocsIndexImport
+      parentRoute: typeof LangLibraryIdVersionDocsImport
     }
-    '/_libraries/config/$version/': {
-      id: '/_libraries/config/$version/'
+    '/$lang/_libraries/config/$version/': {
+      id: '/$lang/_libraries/config/$version/'
       path: '/config/$version'
-      fullPath: '/config/$version'
-      preLoaderRoute: typeof LibrariesConfigVersionIndexImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/config/$version'
+      preLoaderRoute: typeof LangLibrariesConfigVersionIndexImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/form/$version/': {
-      id: '/_libraries/form/$version/'
+    '/$lang/_libraries/form/$version/': {
+      id: '/$lang/_libraries/form/$version/'
       path: '/form/$version'
-      fullPath: '/form/$version'
-      preLoaderRoute: typeof LibrariesFormVersionIndexImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/form/$version'
+      preLoaderRoute: typeof LangLibrariesFormVersionIndexImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/query/$version/': {
-      id: '/_libraries/query/$version/'
+    '/$lang/_libraries/query/$version/': {
+      id: '/$lang/_libraries/query/$version/'
       path: '/query/$version'
-      fullPath: '/query/$version'
-      preLoaderRoute: typeof LibrariesQueryVersionIndexImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/query/$version'
+      preLoaderRoute: typeof LangLibrariesQueryVersionIndexImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/ranger/$version/': {
-      id: '/_libraries/ranger/$version/'
+    '/$lang/_libraries/ranger/$version/': {
+      id: '/$lang/_libraries/ranger/$version/'
       path: '/ranger/$version'
-      fullPath: '/ranger/$version'
-      preLoaderRoute: typeof LibrariesRangerVersionIndexImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/ranger/$version'
+      preLoaderRoute: typeof LangLibrariesRangerVersionIndexImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/router/$version/': {
-      id: '/_libraries/router/$version/'
+    '/$lang/_libraries/router/$version/': {
+      id: '/$lang/_libraries/router/$version/'
       path: '/router/$version'
-      fullPath: '/router/$version'
-      preLoaderRoute: typeof LibrariesRouterVersionIndexImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/router/$version'
+      preLoaderRoute: typeof LangLibrariesRouterVersionIndexImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/start/$version/': {
-      id: '/_libraries/start/$version/'
+    '/$lang/_libraries/start/$version/': {
+      id: '/$lang/_libraries/start/$version/'
       path: '/start/$version'
-      fullPath: '/start/$version'
-      preLoaderRoute: typeof LibrariesStartVersionIndexImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/start/$version'
+      preLoaderRoute: typeof LangLibrariesStartVersionIndexImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/store/$version/': {
-      id: '/_libraries/store/$version/'
+    '/$lang/_libraries/store/$version/': {
+      id: '/$lang/_libraries/store/$version/'
       path: '/store/$version'
-      fullPath: '/store/$version'
-      preLoaderRoute: typeof LibrariesStoreVersionIndexImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/store/$version'
+      preLoaderRoute: typeof LangLibrariesStoreVersionIndexImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/table/$version/': {
-      id: '/_libraries/table/$version/'
+    '/$lang/_libraries/table/$version/': {
+      id: '/$lang/_libraries/table/$version/'
       path: '/table/$version'
-      fullPath: '/table/$version'
-      preLoaderRoute: typeof LibrariesTableVersionIndexImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/table/$version'
+      preLoaderRoute: typeof LangLibrariesTableVersionIndexImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/_libraries/virtual/$version/': {
-      id: '/_libraries/virtual/$version/'
+    '/$lang/_libraries/virtual/$version/': {
+      id: '/$lang/_libraries/virtual/$version/'
       path: '/virtual/$version'
-      fullPath: '/virtual/$version'
-      preLoaderRoute: typeof LibrariesVirtualVersionIndexImport
-      parentRoute: typeof LibrariesRouteImport
+      fullPath: '/$lang/virtual/$version'
+      preLoaderRoute: typeof LangLibrariesVirtualVersionIndexImport
+      parentRoute: typeof LangLibrariesRouteImport
     }
-    '/$libraryId/$version/docs/framework/$framework/$': {
-      id: '/$libraryId/$version/docs/framework/$framework/$'
+    '/$lang/$libraryId/$version/docs/framework/$framework/$': {
+      id: '/$lang/$libraryId/$version/docs/framework/$framework/$'
       path: '/framework/$framework/$'
-      fullPath: '/$libraryId/$version/docs/framework/$framework/$'
-      preLoaderRoute: typeof LibraryIdVersionDocsFrameworkFrameworkSplatImport
-      parentRoute: typeof LibraryIdVersionDocsImport
+      fullPath: '/$lang/$libraryId/$version/docs/framework/$framework/$'
+      preLoaderRoute: typeof LangLibraryIdVersionDocsFrameworkFrameworkSplatImport
+      parentRoute: typeof LangLibraryIdVersionDocsImport
     }
-    '/$libraryId/$version/docs/framework/$framework/examples/$': {
-      id: '/$libraryId/$version/docs/framework/$framework/examples/$'
+    '/$lang/$libraryId/$version/docs/framework/$framework/examples/$': {
+      id: '/$lang/$libraryId/$version/docs/framework/$framework/examples/$'
       path: '/framework/$framework/examples/$'
-      fullPath: '/$libraryId/$version/docs/framework/$framework/examples/$'
-      preLoaderRoute: typeof LibraryIdVersionDocsFrameworkFrameworkExamplesSplatImport
-      parentRoute: typeof LibraryIdVersionDocsImport
+      fullPath: '/$lang/$libraryId/$version/docs/framework/$framework/examples/$'
+      preLoaderRoute: typeof LangLibraryIdVersionDocsFrameworkFrameworkExamplesSplatImport
+      parentRoute: typeof LangLibraryIdVersionDocsImport
     }
   }
 }
 
 // Create and export the route tree
 
-interface LibraryIdVersionDocsRouteChildren {
-  LibraryIdVersionDocsSplatRoute: typeof LibraryIdVersionDocsSplatRoute
-  LibraryIdVersionDocsIndexRoute: typeof LibraryIdVersionDocsIndexRoute
-  LibraryIdVersionDocsFrameworkFrameworkSplatRoute: typeof LibraryIdVersionDocsFrameworkFrameworkSplatRoute
-  LibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute: typeof LibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute
+interface LangLibraryIdVersionDocsRouteChildren {
+  LangLibraryIdVersionDocsSplatRoute: typeof LangLibraryIdVersionDocsSplatRoute
+  LangLibraryIdVersionDocsIndexRoute: typeof LangLibraryIdVersionDocsIndexRoute
+  LangLibraryIdVersionDocsFrameworkFrameworkSplatRoute: typeof LangLibraryIdVersionDocsFrameworkFrameworkSplatRoute
+  LangLibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute: typeof LangLibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute
 }
 
-const LibraryIdVersionDocsRouteChildren: LibraryIdVersionDocsRouteChildren = {
-  LibraryIdVersionDocsSplatRoute: LibraryIdVersionDocsSplatRoute,
-  LibraryIdVersionDocsIndexRoute: LibraryIdVersionDocsIndexRoute,
-  LibraryIdVersionDocsFrameworkFrameworkSplatRoute:
-    LibraryIdVersionDocsFrameworkFrameworkSplatRoute,
-  LibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute:
-    LibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute,
+const LangLibraryIdVersionDocsRouteChildren: LangLibraryIdVersionDocsRouteChildren =
+  {
+    LangLibraryIdVersionDocsSplatRoute: LangLibraryIdVersionDocsSplatRoute,
+    LangLibraryIdVersionDocsIndexRoute: LangLibraryIdVersionDocsIndexRoute,
+    LangLibraryIdVersionDocsFrameworkFrameworkSplatRoute:
+      LangLibraryIdVersionDocsFrameworkFrameworkSplatRoute,
+    LangLibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute:
+      LangLibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute,
+  }
+
+const LangLibraryIdVersionDocsRouteWithChildren =
+  LangLibraryIdVersionDocsRoute._addFileChildren(
+    LangLibraryIdVersionDocsRouteChildren,
+  )
+
+interface LangLibraryIdVersionRouteChildren {
+  LangLibraryIdVersionDocsRoute: typeof LangLibraryIdVersionDocsRouteWithChildren
 }
 
-const LibraryIdVersionDocsRouteWithChildren =
-  LibraryIdVersionDocsRoute._addFileChildren(LibraryIdVersionDocsRouteChildren)
-
-interface LibraryIdVersionRouteChildren {
-  LibraryIdVersionDocsRoute: typeof LibraryIdVersionDocsRouteWithChildren
+const LangLibraryIdVersionRouteChildren: LangLibraryIdVersionRouteChildren = {
+  LangLibraryIdVersionDocsRoute: LangLibraryIdVersionDocsRouteWithChildren,
 }
 
-const LibraryIdVersionRouteChildren: LibraryIdVersionRouteChildren = {
-  LibraryIdVersionDocsRoute: LibraryIdVersionDocsRouteWithChildren,
+const LangLibraryIdVersionRouteWithChildren =
+  LangLibraryIdVersionRoute._addFileChildren(LangLibraryIdVersionRouteChildren)
+
+interface LangLibraryIdRouteRouteChildren {
+  LangLibraryIdVersionRoute: typeof LangLibraryIdVersionRouteWithChildren
+  LangLibraryIdIndexRoute: typeof LangLibraryIdIndexRoute
 }
 
-const LibraryIdVersionRouteWithChildren =
-  LibraryIdVersionRoute._addFileChildren(LibraryIdVersionRouteChildren)
-
-interface LibraryIdRouteRouteChildren {
-  LibraryIdVersionRoute: typeof LibraryIdVersionRouteWithChildren
-  LibraryIdIndexRoute: typeof LibraryIdIndexRoute
+const LangLibraryIdRouteRouteChildren: LangLibraryIdRouteRouteChildren = {
+  LangLibraryIdVersionRoute: LangLibraryIdVersionRouteWithChildren,
+  LangLibraryIdIndexRoute: LangLibraryIdIndexRoute,
 }
 
-const LibraryIdRouteRouteChildren: LibraryIdRouteRouteChildren = {
-  LibraryIdVersionRoute: LibraryIdVersionRouteWithChildren,
-  LibraryIdIndexRoute: LibraryIdIndexRoute,
+const LangLibraryIdRouteRouteWithChildren =
+  LangLibraryIdRouteRoute._addFileChildren(LangLibraryIdRouteRouteChildren)
+
+interface LangLibrariesBlogRouteChildren {
+  LangLibrariesBlogSplatRoute: typeof LangLibrariesBlogSplatRoute
+  LangLibrariesBlogIndexRoute: typeof LangLibrariesBlogIndexRoute
 }
 
-const LibraryIdRouteRouteWithChildren = LibraryIdRouteRoute._addFileChildren(
-  LibraryIdRouteRouteChildren,
-)
-
-interface LibrariesBlogRouteChildren {
-  LibrariesBlogSplatRoute: typeof LibrariesBlogSplatRoute
-  LibrariesBlogIndexRoute: typeof LibrariesBlogIndexRoute
+const LangLibrariesBlogRouteChildren: LangLibrariesBlogRouteChildren = {
+  LangLibrariesBlogSplatRoute: LangLibrariesBlogSplatRoute,
+  LangLibrariesBlogIndexRoute: LangLibrariesBlogIndexRoute,
 }
 
-const LibrariesBlogRouteChildren: LibrariesBlogRouteChildren = {
-  LibrariesBlogSplatRoute: LibrariesBlogSplatRoute,
-  LibrariesBlogIndexRoute: LibrariesBlogIndexRoute,
+const LangLibrariesBlogRouteWithChildren =
+  LangLibrariesBlogRoute._addFileChildren(LangLibrariesBlogRouteChildren)
+
+interface LangLibrariesRouteRouteChildren {
+  LangLibrariesBlogRoute: typeof LangLibrariesBlogRouteWithChildren
+  LangLibrariesDedicatedSupportRoute: typeof LangLibrariesDedicatedSupportRoute
+  LangLibrariesEthosRoute: typeof LangLibrariesEthosRoute
+  LangLibrariesLearnRoute: typeof LangLibrariesLearnRoute
+  LangLibrariesMerchRoute: typeof LangLibrariesMerchRoute
+  LangLibrariesPrivacyRoute: typeof LangLibrariesPrivacyRoute
+  LangLibrariesSupportRoute: typeof LangLibrariesSupportRoute
+  LangLibrariesTermsRoute: typeof LangLibrariesTermsRoute
+  LangLibrariesIndexRoute: typeof LangLibrariesIndexRoute
+  LangLibrariesConfigVersionIndexRoute: typeof LangLibrariesConfigVersionIndexRoute
+  LangLibrariesFormVersionIndexRoute: typeof LangLibrariesFormVersionIndexRoute
+  LangLibrariesQueryVersionIndexRoute: typeof LangLibrariesQueryVersionIndexRoute
+  LangLibrariesRangerVersionIndexRoute: typeof LangLibrariesRangerVersionIndexRoute
+  LangLibrariesRouterVersionIndexRoute: typeof LangLibrariesRouterVersionIndexRoute
+  LangLibrariesStartVersionIndexRoute: typeof LangLibrariesStartVersionIndexRoute
+  LangLibrariesStoreVersionIndexRoute: typeof LangLibrariesStoreVersionIndexRoute
+  LangLibrariesTableVersionIndexRoute: typeof LangLibrariesTableVersionIndexRoute
+  LangLibrariesVirtualVersionIndexRoute: typeof LangLibrariesVirtualVersionIndexRoute
 }
 
-const LibrariesBlogRouteWithChildren = LibrariesBlogRoute._addFileChildren(
-  LibrariesBlogRouteChildren,
-)
-
-interface LibrariesRouteRouteChildren {
-  LibrariesBlogRoute: typeof LibrariesBlogRouteWithChildren
-  LibrariesDedicatedSupportRoute: typeof LibrariesDedicatedSupportRoute
-  LibrariesEthosRoute: typeof LibrariesEthosRoute
-  LibrariesLearnRoute: typeof LibrariesLearnRoute
-  LibrariesPrivacyRoute: typeof LibrariesPrivacyRoute
-  LibrariesSupportRoute: typeof LibrariesSupportRoute
-  LibrariesTermsRoute: typeof LibrariesTermsRoute
-  LibrariesIndexRoute: typeof LibrariesIndexRoute
-  LibrariesConfigVersionIndexRoute: typeof LibrariesConfigVersionIndexRoute
-  LibrariesFormVersionIndexRoute: typeof LibrariesFormVersionIndexRoute
-  LibrariesQueryVersionIndexRoute: typeof LibrariesQueryVersionIndexRoute
-  LibrariesRangerVersionIndexRoute: typeof LibrariesRangerVersionIndexRoute
-  LibrariesRouterVersionIndexRoute: typeof LibrariesRouterVersionIndexRoute
-  LibrariesStartVersionIndexRoute: typeof LibrariesStartVersionIndexRoute
-  LibrariesStoreVersionIndexRoute: typeof LibrariesStoreVersionIndexRoute
-  LibrariesTableVersionIndexRoute: typeof LibrariesTableVersionIndexRoute
-  LibrariesVirtualVersionIndexRoute: typeof LibrariesVirtualVersionIndexRoute
+const LangLibrariesRouteRouteChildren: LangLibrariesRouteRouteChildren = {
+  LangLibrariesBlogRoute: LangLibrariesBlogRouteWithChildren,
+  LangLibrariesDedicatedSupportRoute: LangLibrariesDedicatedSupportRoute,
+  LangLibrariesEthosRoute: LangLibrariesEthosRoute,
+  LangLibrariesLearnRoute: LangLibrariesLearnRoute,
+  LangLibrariesMerchRoute: LangLibrariesMerchRoute,
+  LangLibrariesPrivacyRoute: LangLibrariesPrivacyRoute,
+  LangLibrariesSupportRoute: LangLibrariesSupportRoute,
+  LangLibrariesTermsRoute: LangLibrariesTermsRoute,
+  LangLibrariesIndexRoute: LangLibrariesIndexRoute,
+  LangLibrariesConfigVersionIndexRoute: LangLibrariesConfigVersionIndexRoute,
+  LangLibrariesFormVersionIndexRoute: LangLibrariesFormVersionIndexRoute,
+  LangLibrariesQueryVersionIndexRoute: LangLibrariesQueryVersionIndexRoute,
+  LangLibrariesRangerVersionIndexRoute: LangLibrariesRangerVersionIndexRoute,
+  LangLibrariesRouterVersionIndexRoute: LangLibrariesRouterVersionIndexRoute,
+  LangLibrariesStartVersionIndexRoute: LangLibrariesStartVersionIndexRoute,
+  LangLibrariesStoreVersionIndexRoute: LangLibrariesStoreVersionIndexRoute,
+  LangLibrariesTableVersionIndexRoute: LangLibrariesTableVersionIndexRoute,
+  LangLibrariesVirtualVersionIndexRoute: LangLibrariesVirtualVersionIndexRoute,
 }
 
-const LibrariesRouteRouteChildren: LibrariesRouteRouteChildren = {
-  LibrariesBlogRoute: LibrariesBlogRouteWithChildren,
-  LibrariesDedicatedSupportRoute: LibrariesDedicatedSupportRoute,
-  LibrariesEthosRoute: LibrariesEthosRoute,
-  LibrariesLearnRoute: LibrariesLearnRoute,
-  LibrariesPrivacyRoute: LibrariesPrivacyRoute,
-  LibrariesSupportRoute: LibrariesSupportRoute,
-  LibrariesTermsRoute: LibrariesTermsRoute,
-  LibrariesIndexRoute: LibrariesIndexRoute,
-  LibrariesConfigVersionIndexRoute: LibrariesConfigVersionIndexRoute,
-  LibrariesFormVersionIndexRoute: LibrariesFormVersionIndexRoute,
-  LibrariesQueryVersionIndexRoute: LibrariesQueryVersionIndexRoute,
-  LibrariesRangerVersionIndexRoute: LibrariesRangerVersionIndexRoute,
-  LibrariesRouterVersionIndexRoute: LibrariesRouterVersionIndexRoute,
-  LibrariesStartVersionIndexRoute: LibrariesStartVersionIndexRoute,
-  LibrariesStoreVersionIndexRoute: LibrariesStoreVersionIndexRoute,
-  LibrariesTableVersionIndexRoute: LibrariesTableVersionIndexRoute,
-  LibrariesVirtualVersionIndexRoute: LibrariesVirtualVersionIndexRoute,
+const LangLibrariesRouteRouteWithChildren =
+  LangLibrariesRouteRoute._addFileChildren(LangLibrariesRouteRouteChildren)
+
+interface LangRouteChildren {
+  LangLibrariesRouteRoute: typeof LangLibrariesRouteRouteWithChildren
 }
 
-const LibrariesRouteRouteWithChildren = LibrariesRouteRoute._addFileChildren(
-  LibrariesRouteRouteChildren,
-)
+const LangRouteChildren: LangRouteChildren = {
+  LangLibrariesRouteRoute: LangLibrariesRouteRouteWithChildren,
+}
+
+const LangRouteWithChildren = LangRoute._addFileChildren(LangRouteChildren)
 
 export interface FileRoutesByFullPath {
-  '/$libraryId': typeof LibraryIdRouteRouteWithChildren
-  '': typeof LibrariesRouteRouteWithChildren
+  '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
-  '/merch': typeof MerchRoute
   '/sponsors-embed': typeof SponsorsEmbedRoute
-  '/$libraryId/$version': typeof LibraryIdVersionRouteWithChildren
-  '/blog': typeof LibrariesBlogRouteWithChildren
-  '/dedicated-support': typeof LibrariesDedicatedSupportRoute
-  '/ethos': typeof LibrariesEthosRoute
-  '/learn': typeof LibrariesLearnRoute
-  '/privacy': typeof LibrariesPrivacyRoute
-  '/support': typeof LibrariesSupportRoute
-  '/terms': typeof LibrariesTermsRoute
-  '/$libraryId/': typeof LibraryIdIndexRoute
-  '/': typeof LibrariesIndexRoute
-  '/$libraryId/$version/docs': typeof LibraryIdVersionDocsRouteWithChildren
-  '/blog/$': typeof LibrariesBlogSplatRoute
-  '/blog/': typeof LibrariesBlogIndexRoute
-  '/$libraryId/$version/docs/$': typeof LibraryIdVersionDocsSplatRoute
-  '/$libraryId/$version/docs/': typeof LibraryIdVersionDocsIndexRoute
-  '/config/$version': typeof LibrariesConfigVersionIndexRoute
-  '/form/$version': typeof LibrariesFormVersionIndexRoute
-  '/query/$version': typeof LibrariesQueryVersionIndexRoute
-  '/ranger/$version': typeof LibrariesRangerVersionIndexRoute
-  '/router/$version': typeof LibrariesRouterVersionIndexRoute
-  '/start/$version': typeof LibrariesStartVersionIndexRoute
-  '/store/$version': typeof LibrariesStoreVersionIndexRoute
-  '/table/$version': typeof LibrariesTableVersionIndexRoute
-  '/virtual/$version': typeof LibrariesVirtualVersionIndexRoute
-  '/$libraryId/$version/docs/framework/$framework/$': typeof LibraryIdVersionDocsFrameworkFrameworkSplatRoute
-  '/$libraryId/$version/docs/framework/$framework/examples/$': typeof LibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute
+  '/$lang/$libraryId': typeof LangLibraryIdRouteRouteWithChildren
+  '/$lang': typeof LangLibrariesRouteRouteWithChildren
+  '/$lang/$libraryId/$version': typeof LangLibraryIdVersionRouteWithChildren
+  '/$lang/blog': typeof LangLibrariesBlogRouteWithChildren
+  '/$lang/dedicated-support': typeof LangLibrariesDedicatedSupportRoute
+  '/$lang/ethos': typeof LangLibrariesEthosRoute
+  '/$lang/learn': typeof LangLibrariesLearnRoute
+  '/$lang/merch': typeof LangLibrariesMerchRoute
+  '/$lang/privacy': typeof LangLibrariesPrivacyRoute
+  '/$lang/support': typeof LangLibrariesSupportRoute
+  '/$lang/terms': typeof LangLibrariesTermsRoute
+  '/$lang/$libraryId/': typeof LangLibraryIdIndexRoute
+  '/$lang/': typeof LangLibrariesIndexRoute
+  '/$lang/$libraryId/$version/docs': typeof LangLibraryIdVersionDocsRouteWithChildren
+  '/$lang/blog/$': typeof LangLibrariesBlogSplatRoute
+  '/$lang/blog/': typeof LangLibrariesBlogIndexRoute
+  '/$lang/$libraryId/$version/docs/$': typeof LangLibraryIdVersionDocsSplatRoute
+  '/$lang/$libraryId/$version/docs/': typeof LangLibraryIdVersionDocsIndexRoute
+  '/$lang/config/$version': typeof LangLibrariesConfigVersionIndexRoute
+  '/$lang/form/$version': typeof LangLibrariesFormVersionIndexRoute
+  '/$lang/query/$version': typeof LangLibrariesQueryVersionIndexRoute
+  '/$lang/ranger/$version': typeof LangLibrariesRangerVersionIndexRoute
+  '/$lang/router/$version': typeof LangLibrariesRouterVersionIndexRoute
+  '/$lang/start/$version': typeof LangLibrariesStartVersionIndexRoute
+  '/$lang/store/$version': typeof LangLibrariesStoreVersionIndexRoute
+  '/$lang/table/$version': typeof LangLibrariesTableVersionIndexRoute
+  '/$lang/virtual/$version': typeof LangLibrariesVirtualVersionIndexRoute
+  '/$lang/$libraryId/$version/docs/framework/$framework/$': typeof LangLibraryIdVersionDocsFrameworkFrameworkSplatRoute
+  '/$lang/$libraryId/$version/docs/framework/$framework/examples/$': typeof LangLibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute
 }
 
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
-  '/merch': typeof MerchRoute
   '/sponsors-embed': typeof SponsorsEmbedRoute
-  '/$libraryId/$version': typeof LibraryIdVersionRouteWithChildren
-  '/dedicated-support': typeof LibrariesDedicatedSupportRoute
-  '/ethos': typeof LibrariesEthosRoute
-  '/learn': typeof LibrariesLearnRoute
-  '/privacy': typeof LibrariesPrivacyRoute
-  '/support': typeof LibrariesSupportRoute
-  '/terms': typeof LibrariesTermsRoute
-  '/$libraryId': typeof LibraryIdIndexRoute
-  '/': typeof LibrariesIndexRoute
-  '/blog/$': typeof LibrariesBlogSplatRoute
-  '/blog': typeof LibrariesBlogIndexRoute
-  '/$libraryId/$version/docs/$': typeof LibraryIdVersionDocsSplatRoute
-  '/$libraryId/$version/docs': typeof LibraryIdVersionDocsIndexRoute
-  '/config/$version': typeof LibrariesConfigVersionIndexRoute
-  '/form/$version': typeof LibrariesFormVersionIndexRoute
-  '/query/$version': typeof LibrariesQueryVersionIndexRoute
-  '/ranger/$version': typeof LibrariesRangerVersionIndexRoute
-  '/router/$version': typeof LibrariesRouterVersionIndexRoute
-  '/start/$version': typeof LibrariesStartVersionIndexRoute
-  '/store/$version': typeof LibrariesStoreVersionIndexRoute
-  '/table/$version': typeof LibrariesTableVersionIndexRoute
-  '/virtual/$version': typeof LibrariesVirtualVersionIndexRoute
-  '/$libraryId/$version/docs/framework/$framework/$': typeof LibraryIdVersionDocsFrameworkFrameworkSplatRoute
-  '/$libraryId/$version/docs/framework/$framework/examples/$': typeof LibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute
+  '/$lang': typeof LangLibrariesIndexRoute
+  '/$lang/$libraryId/$version': typeof LangLibraryIdVersionRouteWithChildren
+  '/$lang/dedicated-support': typeof LangLibrariesDedicatedSupportRoute
+  '/$lang/ethos': typeof LangLibrariesEthosRoute
+  '/$lang/learn': typeof LangLibrariesLearnRoute
+  '/$lang/merch': typeof LangLibrariesMerchRoute
+  '/$lang/privacy': typeof LangLibrariesPrivacyRoute
+  '/$lang/support': typeof LangLibrariesSupportRoute
+  '/$lang/terms': typeof LangLibrariesTermsRoute
+  '/$lang/$libraryId': typeof LangLibraryIdIndexRoute
+  '/$lang/blog/$': typeof LangLibrariesBlogSplatRoute
+  '/$lang/blog': typeof LangLibrariesBlogIndexRoute
+  '/$lang/$libraryId/$version/docs/$': typeof LangLibraryIdVersionDocsSplatRoute
+  '/$lang/$libraryId/$version/docs': typeof LangLibraryIdVersionDocsIndexRoute
+  '/$lang/config/$version': typeof LangLibrariesConfigVersionIndexRoute
+  '/$lang/form/$version': typeof LangLibrariesFormVersionIndexRoute
+  '/$lang/query/$version': typeof LangLibrariesQueryVersionIndexRoute
+  '/$lang/ranger/$version': typeof LangLibrariesRangerVersionIndexRoute
+  '/$lang/router/$version': typeof LangLibrariesRouterVersionIndexRoute
+  '/$lang/start/$version': typeof LangLibrariesStartVersionIndexRoute
+  '/$lang/store/$version': typeof LangLibrariesStoreVersionIndexRoute
+  '/$lang/table/$version': typeof LangLibrariesTableVersionIndexRoute
+  '/$lang/virtual/$version': typeof LangLibrariesVirtualVersionIndexRoute
+  '/$lang/$libraryId/$version/docs/framework/$framework/$': typeof LangLibraryIdVersionDocsFrameworkFrameworkSplatRoute
+  '/$lang/$libraryId/$version/docs/framework/$framework/examples/$': typeof LangLibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/$libraryId': typeof LibraryIdRouteRouteWithChildren
-  '/_libraries': typeof LibrariesRouteRouteWithChildren
+  '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
-  '/merch': typeof MerchRoute
   '/sponsors-embed': typeof SponsorsEmbedRoute
-  '/$libraryId/$version': typeof LibraryIdVersionRouteWithChildren
-  '/_libraries/blog': typeof LibrariesBlogRouteWithChildren
-  '/_libraries/dedicated-support': typeof LibrariesDedicatedSupportRoute
-  '/_libraries/ethos': typeof LibrariesEthosRoute
-  '/_libraries/learn': typeof LibrariesLearnRoute
-  '/_libraries/privacy': typeof LibrariesPrivacyRoute
-  '/_libraries/support': typeof LibrariesSupportRoute
-  '/_libraries/terms': typeof LibrariesTermsRoute
-  '/$libraryId/': typeof LibraryIdIndexRoute
-  '/_libraries/': typeof LibrariesIndexRoute
-  '/$libraryId/$version/docs': typeof LibraryIdVersionDocsRouteWithChildren
-  '/_libraries/blog/$': typeof LibrariesBlogSplatRoute
-  '/_libraries/blog/': typeof LibrariesBlogIndexRoute
-  '/$libraryId/$version/docs/$': typeof LibraryIdVersionDocsSplatRoute
-  '/$libraryId/$version/docs/': typeof LibraryIdVersionDocsIndexRoute
-  '/_libraries/config/$version/': typeof LibrariesConfigVersionIndexRoute
-  '/_libraries/form/$version/': typeof LibrariesFormVersionIndexRoute
-  '/_libraries/query/$version/': typeof LibrariesQueryVersionIndexRoute
-  '/_libraries/ranger/$version/': typeof LibrariesRangerVersionIndexRoute
-  '/_libraries/router/$version/': typeof LibrariesRouterVersionIndexRoute
-  '/_libraries/start/$version/': typeof LibrariesStartVersionIndexRoute
-  '/_libraries/store/$version/': typeof LibrariesStoreVersionIndexRoute
-  '/_libraries/table/$version/': typeof LibrariesTableVersionIndexRoute
-  '/_libraries/virtual/$version/': typeof LibrariesVirtualVersionIndexRoute
-  '/$libraryId/$version/docs/framework/$framework/$': typeof LibraryIdVersionDocsFrameworkFrameworkSplatRoute
-  '/$libraryId/$version/docs/framework/$framework/examples/$': typeof LibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute
+  '/$lang/$libraryId': typeof LangLibraryIdRouteRouteWithChildren
+  '/$lang': typeof LangRouteWithChildren
+  '/$lang/_libraries': typeof LangLibrariesRouteRouteWithChildren
+  '/$lang/$libraryId/$version': typeof LangLibraryIdVersionRouteWithChildren
+  '/$lang/_libraries/blog': typeof LangLibrariesBlogRouteWithChildren
+  '/$lang/_libraries/dedicated-support': typeof LangLibrariesDedicatedSupportRoute
+  '/$lang/_libraries/ethos': typeof LangLibrariesEthosRoute
+  '/$lang/_libraries/learn': typeof LangLibrariesLearnRoute
+  '/$lang/_libraries/merch': typeof LangLibrariesMerchRoute
+  '/$lang/_libraries/privacy': typeof LangLibrariesPrivacyRoute
+  '/$lang/_libraries/support': typeof LangLibrariesSupportRoute
+  '/$lang/_libraries/terms': typeof LangLibrariesTermsRoute
+  '/$lang/$libraryId/': typeof LangLibraryIdIndexRoute
+  '/$lang/_libraries/': typeof LangLibrariesIndexRoute
+  '/$lang/$libraryId/$version/docs': typeof LangLibraryIdVersionDocsRouteWithChildren
+  '/$lang/_libraries/blog/$': typeof LangLibrariesBlogSplatRoute
+  '/$lang/_libraries/blog/': typeof LangLibrariesBlogIndexRoute
+  '/$lang/$libraryId/$version/docs/$': typeof LangLibraryIdVersionDocsSplatRoute
+  '/$lang/$libraryId/$version/docs/': typeof LangLibraryIdVersionDocsIndexRoute
+  '/$lang/_libraries/config/$version/': typeof LangLibrariesConfigVersionIndexRoute
+  '/$lang/_libraries/form/$version/': typeof LangLibrariesFormVersionIndexRoute
+  '/$lang/_libraries/query/$version/': typeof LangLibrariesQueryVersionIndexRoute
+  '/$lang/_libraries/ranger/$version/': typeof LangLibrariesRangerVersionIndexRoute
+  '/$lang/_libraries/router/$version/': typeof LangLibrariesRouterVersionIndexRoute
+  '/$lang/_libraries/start/$version/': typeof LangLibrariesStartVersionIndexRoute
+  '/$lang/_libraries/store/$version/': typeof LangLibrariesStoreVersionIndexRoute
+  '/$lang/_libraries/table/$version/': typeof LangLibrariesTableVersionIndexRoute
+  '/$lang/_libraries/virtual/$version/': typeof LangLibrariesVirtualVersionIndexRoute
+  '/$lang/$libraryId/$version/docs/framework/$framework/$': typeof LangLibraryIdVersionDocsFrameworkFrameworkSplatRoute
+  '/$lang/$libraryId/$version/docs/framework/$framework/examples/$': typeof LangLibraryIdVersionDocsFrameworkFrameworkExamplesSplatRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/$libraryId'
-    | ''
+    | '/'
     | '/dashboard'
     | '/login'
-    | '/merch'
     | '/sponsors-embed'
-    | '/$libraryId/$version'
-    | '/blog'
-    | '/dedicated-support'
-    | '/ethos'
-    | '/learn'
-    | '/privacy'
-    | '/support'
-    | '/terms'
-    | '/$libraryId/'
-    | '/'
-    | '/$libraryId/$version/docs'
-    | '/blog/$'
-    | '/blog/'
-    | '/$libraryId/$version/docs/$'
-    | '/$libraryId/$version/docs/'
-    | '/config/$version'
-    | '/form/$version'
-    | '/query/$version'
-    | '/ranger/$version'
-    | '/router/$version'
-    | '/start/$version'
-    | '/store/$version'
-    | '/table/$version'
-    | '/virtual/$version'
-    | '/$libraryId/$version/docs/framework/$framework/$'
-    | '/$libraryId/$version/docs/framework/$framework/examples/$'
+    | '/$lang/$libraryId'
+    | '/$lang'
+    | '/$lang/$libraryId/$version'
+    | '/$lang/blog'
+    | '/$lang/dedicated-support'
+    | '/$lang/ethos'
+    | '/$lang/learn'
+    | '/$lang/merch'
+    | '/$lang/privacy'
+    | '/$lang/support'
+    | '/$lang/terms'
+    | '/$lang/$libraryId/'
+    | '/$lang/'
+    | '/$lang/$libraryId/$version/docs'
+    | '/$lang/blog/$'
+    | '/$lang/blog/'
+    | '/$lang/$libraryId/$version/docs/$'
+    | '/$lang/$libraryId/$version/docs/'
+    | '/$lang/config/$version'
+    | '/$lang/form/$version'
+    | '/$lang/query/$version'
+    | '/$lang/ranger/$version'
+    | '/$lang/router/$version'
+    | '/$lang/start/$version'
+    | '/$lang/store/$version'
+    | '/$lang/table/$version'
+    | '/$lang/virtual/$version'
+    | '/$lang/$libraryId/$version/docs/framework/$framework/$'
+    | '/$lang/$libraryId/$version/docs/framework/$framework/examples/$'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/'
     | '/dashboard'
     | '/login'
-    | '/merch'
     | '/sponsors-embed'
-    | '/$libraryId/$version'
-    | '/dedicated-support'
-    | '/ethos'
-    | '/learn'
-    | '/privacy'
-    | '/support'
-    | '/terms'
-    | '/$libraryId'
-    | '/'
-    | '/blog/$'
-    | '/blog'
-    | '/$libraryId/$version/docs/$'
-    | '/$libraryId/$version/docs'
-    | '/config/$version'
-    | '/form/$version'
-    | '/query/$version'
-    | '/ranger/$version'
-    | '/router/$version'
-    | '/start/$version'
-    | '/store/$version'
-    | '/table/$version'
-    | '/virtual/$version'
-    | '/$libraryId/$version/docs/framework/$framework/$'
-    | '/$libraryId/$version/docs/framework/$framework/examples/$'
+    | '/$lang'
+    | '/$lang/$libraryId/$version'
+    | '/$lang/dedicated-support'
+    | '/$lang/ethos'
+    | '/$lang/learn'
+    | '/$lang/merch'
+    | '/$lang/privacy'
+    | '/$lang/support'
+    | '/$lang/terms'
+    | '/$lang/$libraryId'
+    | '/$lang/blog/$'
+    | '/$lang/blog'
+    | '/$lang/$libraryId/$version/docs/$'
+    | '/$lang/$libraryId/$version/docs'
+    | '/$lang/config/$version'
+    | '/$lang/form/$version'
+    | '/$lang/query/$version'
+    | '/$lang/ranger/$version'
+    | '/$lang/router/$version'
+    | '/$lang/start/$version'
+    | '/$lang/store/$version'
+    | '/$lang/table/$version'
+    | '/$lang/virtual/$version'
+    | '/$lang/$libraryId/$version/docs/framework/$framework/$'
+    | '/$lang/$libraryId/$version/docs/framework/$framework/examples/$'
   id:
     | '__root__'
-    | '/$libraryId'
-    | '/_libraries'
+    | '/'
     | '/dashboard'
     | '/login'
-    | '/merch'
     | '/sponsors-embed'
-    | '/$libraryId/$version'
-    | '/_libraries/blog'
-    | '/_libraries/dedicated-support'
-    | '/_libraries/ethos'
-    | '/_libraries/learn'
-    | '/_libraries/privacy'
-    | '/_libraries/support'
-    | '/_libraries/terms'
-    | '/$libraryId/'
-    | '/_libraries/'
-    | '/$libraryId/$version/docs'
-    | '/_libraries/blog/$'
-    | '/_libraries/blog/'
-    | '/$libraryId/$version/docs/$'
-    | '/$libraryId/$version/docs/'
-    | '/_libraries/config/$version/'
-    | '/_libraries/form/$version/'
-    | '/_libraries/query/$version/'
-    | '/_libraries/ranger/$version/'
-    | '/_libraries/router/$version/'
-    | '/_libraries/start/$version/'
-    | '/_libraries/store/$version/'
-    | '/_libraries/table/$version/'
-    | '/_libraries/virtual/$version/'
-    | '/$libraryId/$version/docs/framework/$framework/$'
-    | '/$libraryId/$version/docs/framework/$framework/examples/$'
+    | '/$lang/$libraryId'
+    | '/$lang'
+    | '/$lang/_libraries'
+    | '/$lang/$libraryId/$version'
+    | '/$lang/_libraries/blog'
+    | '/$lang/_libraries/dedicated-support'
+    | '/$lang/_libraries/ethos'
+    | '/$lang/_libraries/learn'
+    | '/$lang/_libraries/merch'
+    | '/$lang/_libraries/privacy'
+    | '/$lang/_libraries/support'
+    | '/$lang/_libraries/terms'
+    | '/$lang/$libraryId/'
+    | '/$lang/_libraries/'
+    | '/$lang/$libraryId/$version/docs'
+    | '/$lang/_libraries/blog/$'
+    | '/$lang/_libraries/blog/'
+    | '/$lang/$libraryId/$version/docs/$'
+    | '/$lang/$libraryId/$version/docs/'
+    | '/$lang/_libraries/config/$version/'
+    | '/$lang/_libraries/form/$version/'
+    | '/$lang/_libraries/query/$version/'
+    | '/$lang/_libraries/ranger/$version/'
+    | '/$lang/_libraries/router/$version/'
+    | '/$lang/_libraries/start/$version/'
+    | '/$lang/_libraries/store/$version/'
+    | '/$lang/_libraries/table/$version/'
+    | '/$lang/_libraries/virtual/$version/'
+    | '/$lang/$libraryId/$version/docs/framework/$framework/$'
+    | '/$lang/$libraryId/$version/docs/framework/$framework/examples/$'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  LibraryIdRouteRoute: typeof LibraryIdRouteRouteWithChildren
-  LibrariesRouteRoute: typeof LibrariesRouteRouteWithChildren
+  IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
-  MerchRoute: typeof MerchRoute
   SponsorsEmbedRoute: typeof SponsorsEmbedRoute
+  LangLibraryIdRouteRoute: typeof LangLibraryIdRouteRouteWithChildren
+  LangRoute: typeof LangRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  LibraryIdRouteRoute: LibraryIdRouteRouteWithChildren,
-  LibrariesRouteRoute: LibrariesRouteRouteWithChildren,
+  IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
-  MerchRoute: MerchRoute,
   SponsorsEmbedRoute: SponsorsEmbedRoute,
+  LangLibraryIdRouteRoute: LangLibraryIdRouteRouteWithChildren,
+  LangRoute: LangRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -818,42 +871,16 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/$libraryId",
-        "/_libraries",
+        "/",
         "/dashboard",
         "/login",
-        "/merch",
-        "/sponsors-embed"
+        "/sponsors-embed",
+        "/$lang/$libraryId",
+        "/$lang"
       ]
     },
-    "/$libraryId": {
-      "filePath": "$libraryId/route.tsx",
-      "children": [
-        "/$libraryId/$version",
-        "/$libraryId/"
-      ]
-    },
-    "/_libraries": {
-      "filePath": "_libraries/route.tsx",
-      "children": [
-        "/_libraries/blog",
-        "/_libraries/dedicated-support",
-        "/_libraries/ethos",
-        "/_libraries/learn",
-        "/_libraries/privacy",
-        "/_libraries/support",
-        "/_libraries/terms",
-        "/_libraries/",
-        "/_libraries/config/$version/",
-        "/_libraries/form/$version/",
-        "/_libraries/query/$version/",
-        "/_libraries/ranger/$version/",
-        "/_libraries/router/$version/",
-        "/_libraries/start/$version/",
-        "/_libraries/store/$version/",
-        "/_libraries/table/$version/",
-        "/_libraries/virtual/$version/"
-      ]
+    "/": {
+      "filePath": "index.tsx"
     },
     "/dashboard": {
       "filePath": "dashboard.tsx"
@@ -861,128 +888,166 @@ export const routeTree = rootRoute
     "/login": {
       "filePath": "login.tsx"
     },
-    "/merch": {
-      "filePath": "merch.tsx"
-    },
     "/sponsors-embed": {
       "filePath": "sponsors-embed.tsx"
     },
-    "/$libraryId/$version": {
-      "filePath": "$libraryId/$version.tsx",
-      "parent": "/$libraryId",
+    "/$lang/$libraryId": {
+      "filePath": "$lang/$libraryId/route.tsx",
       "children": [
-        "/$libraryId/$version/docs"
+        "/$lang/$libraryId/$version",
+        "/$lang/$libraryId/"
       ]
     },
-    "/_libraries/blog": {
-      "filePath": "_libraries/blog.tsx",
-      "parent": "/_libraries",
+    "/$lang": {
+      "filePath": "$lang/_libraries",
       "children": [
-        "/_libraries/blog/$",
-        "/_libraries/blog/"
+        "/$lang/_libraries"
       ]
     },
-    "/_libraries/dedicated-support": {
-      "filePath": "_libraries/dedicated-support.tsx",
-      "parent": "/_libraries"
-    },
-    "/_libraries/ethos": {
-      "filePath": "_libraries/ethos.tsx",
-      "parent": "/_libraries"
-    },
-    "/_libraries/learn": {
-      "filePath": "_libraries/learn.tsx",
-      "parent": "/_libraries"
-    },
-    "/_libraries/privacy": {
-      "filePath": "_libraries/privacy.tsx",
-      "parent": "/_libraries"
-    },
-    "/_libraries/support": {
-      "filePath": "_libraries/support.tsx",
-      "parent": "/_libraries"
-    },
-    "/_libraries/terms": {
-      "filePath": "_libraries/terms.tsx",
-      "parent": "/_libraries"
-    },
-    "/$libraryId/": {
-      "filePath": "$libraryId/index.tsx",
-      "parent": "/$libraryId"
-    },
-    "/_libraries/": {
-      "filePath": "_libraries/index.tsx",
-      "parent": "/_libraries"
-    },
-    "/$libraryId/$version/docs": {
-      "filePath": "$libraryId/$version.docs.tsx",
-      "parent": "/$libraryId/$version",
+    "/$lang/_libraries": {
+      "filePath": "$lang/_libraries/route.tsx",
+      "parent": "/$lang",
       "children": [
-        "/$libraryId/$version/docs/$",
-        "/$libraryId/$version/docs/",
-        "/$libraryId/$version/docs/framework/$framework/$",
-        "/$libraryId/$version/docs/framework/$framework/examples/$"
+        "/$lang/_libraries/blog",
+        "/$lang/_libraries/dedicated-support",
+        "/$lang/_libraries/ethos",
+        "/$lang/_libraries/learn",
+        "/$lang/_libraries/merch",
+        "/$lang/_libraries/privacy",
+        "/$lang/_libraries/support",
+        "/$lang/_libraries/terms",
+        "/$lang/_libraries/",
+        "/$lang/_libraries/config/$version/",
+        "/$lang/_libraries/form/$version/",
+        "/$lang/_libraries/query/$version/",
+        "/$lang/_libraries/ranger/$version/",
+        "/$lang/_libraries/router/$version/",
+        "/$lang/_libraries/start/$version/",
+        "/$lang/_libraries/store/$version/",
+        "/$lang/_libraries/table/$version/",
+        "/$lang/_libraries/virtual/$version/"
       ]
     },
-    "/_libraries/blog/$": {
-      "filePath": "_libraries/blog.$.tsx",
-      "parent": "/_libraries/blog"
+    "/$lang/$libraryId/$version": {
+      "filePath": "$lang/$libraryId/$version.tsx",
+      "parent": "/$lang/$libraryId",
+      "children": [
+        "/$lang/$libraryId/$version/docs"
+      ]
     },
-    "/_libraries/blog/": {
-      "filePath": "_libraries/blog.index.tsx",
-      "parent": "/_libraries/blog"
+    "/$lang/_libraries/blog": {
+      "filePath": "$lang/_libraries/blog.tsx",
+      "parent": "/$lang/_libraries",
+      "children": [
+        "/$lang/_libraries/blog/$",
+        "/$lang/_libraries/blog/"
+      ]
     },
-    "/$libraryId/$version/docs/$": {
-      "filePath": "$libraryId/$version.docs.$.tsx",
-      "parent": "/$libraryId/$version/docs"
+    "/$lang/_libraries/dedicated-support": {
+      "filePath": "$lang/_libraries/dedicated-support.tsx",
+      "parent": "/$lang/_libraries"
     },
-    "/$libraryId/$version/docs/": {
-      "filePath": "$libraryId/$version.docs.index.tsx",
-      "parent": "/$libraryId/$version/docs"
+    "/$lang/_libraries/ethos": {
+      "filePath": "$lang/_libraries/ethos.tsx",
+      "parent": "/$lang/_libraries"
     },
-    "/_libraries/config/$version/": {
-      "filePath": "_libraries/config.$version.index.tsx",
-      "parent": "/_libraries"
+    "/$lang/_libraries/learn": {
+      "filePath": "$lang/_libraries/learn.tsx",
+      "parent": "/$lang/_libraries"
     },
-    "/_libraries/form/$version/": {
-      "filePath": "_libraries/form.$version.index.tsx",
-      "parent": "/_libraries"
+    "/$lang/_libraries/merch": {
+      "filePath": "$lang/_libraries/merch.tsx",
+      "parent": "/$lang/_libraries"
     },
-    "/_libraries/query/$version/": {
-      "filePath": "_libraries/query.$version.index.tsx",
-      "parent": "/_libraries"
+    "/$lang/_libraries/privacy": {
+      "filePath": "$lang/_libraries/privacy.tsx",
+      "parent": "/$lang/_libraries"
     },
-    "/_libraries/ranger/$version/": {
-      "filePath": "_libraries/ranger.$version.index.tsx",
-      "parent": "/_libraries"
+    "/$lang/_libraries/support": {
+      "filePath": "$lang/_libraries/support.tsx",
+      "parent": "/$lang/_libraries"
     },
-    "/_libraries/router/$version/": {
-      "filePath": "_libraries/router.$version.index.tsx",
-      "parent": "/_libraries"
+    "/$lang/_libraries/terms": {
+      "filePath": "$lang/_libraries/terms.tsx",
+      "parent": "/$lang/_libraries"
     },
-    "/_libraries/start/$version/": {
-      "filePath": "_libraries/start.$version.index.tsx",
-      "parent": "/_libraries"
+    "/$lang/$libraryId/": {
+      "filePath": "$lang/$libraryId/index.tsx",
+      "parent": "/$lang/$libraryId"
     },
-    "/_libraries/store/$version/": {
-      "filePath": "_libraries/store.$version.index.tsx",
-      "parent": "/_libraries"
+    "/$lang/_libraries/": {
+      "filePath": "$lang/_libraries/index.tsx",
+      "parent": "/$lang/_libraries"
     },
-    "/_libraries/table/$version/": {
-      "filePath": "_libraries/table.$version.index.tsx",
-      "parent": "/_libraries"
+    "/$lang/$libraryId/$version/docs": {
+      "filePath": "$lang/$libraryId/$version.docs.tsx",
+      "parent": "/$lang/$libraryId/$version",
+      "children": [
+        "/$lang/$libraryId/$version/docs/$",
+        "/$lang/$libraryId/$version/docs/",
+        "/$lang/$libraryId/$version/docs/framework/$framework/$",
+        "/$lang/$libraryId/$version/docs/framework/$framework/examples/$"
+      ]
     },
-    "/_libraries/virtual/$version/": {
-      "filePath": "_libraries/virtual.$version.index.tsx",
-      "parent": "/_libraries"
+    "/$lang/_libraries/blog/$": {
+      "filePath": "$lang/_libraries/blog.$.tsx",
+      "parent": "/$lang/_libraries/blog"
     },
-    "/$libraryId/$version/docs/framework/$framework/$": {
-      "filePath": "$libraryId/$version.docs.framework.$framework.$.tsx",
-      "parent": "/$libraryId/$version/docs"
+    "/$lang/_libraries/blog/": {
+      "filePath": "$lang/_libraries/blog.index.tsx",
+      "parent": "/$lang/_libraries/blog"
     },
-    "/$libraryId/$version/docs/framework/$framework/examples/$": {
-      "filePath": "$libraryId/$version.docs.framework.$framework.examples.$.tsx",
-      "parent": "/$libraryId/$version/docs"
+    "/$lang/$libraryId/$version/docs/$": {
+      "filePath": "$lang/$libraryId/$version.docs.$.tsx",
+      "parent": "/$lang/$libraryId/$version/docs"
+    },
+    "/$lang/$libraryId/$version/docs/": {
+      "filePath": "$lang/$libraryId/$version.docs.index.tsx",
+      "parent": "/$lang/$libraryId/$version/docs"
+    },
+    "/$lang/_libraries/config/$version/": {
+      "filePath": "$lang/_libraries/config.$version.index.tsx",
+      "parent": "/$lang/_libraries"
+    },
+    "/$lang/_libraries/form/$version/": {
+      "filePath": "$lang/_libraries/form.$version.index.tsx",
+      "parent": "/$lang/_libraries"
+    },
+    "/$lang/_libraries/query/$version/": {
+      "filePath": "$lang/_libraries/query.$version.index.tsx",
+      "parent": "/$lang/_libraries"
+    },
+    "/$lang/_libraries/ranger/$version/": {
+      "filePath": "$lang/_libraries/ranger.$version.index.tsx",
+      "parent": "/$lang/_libraries"
+    },
+    "/$lang/_libraries/router/$version/": {
+      "filePath": "$lang/_libraries/router.$version.index.tsx",
+      "parent": "/$lang/_libraries"
+    },
+    "/$lang/_libraries/start/$version/": {
+      "filePath": "$lang/_libraries/start.$version.index.tsx",
+      "parent": "/$lang/_libraries"
+    },
+    "/$lang/_libraries/store/$version/": {
+      "filePath": "$lang/_libraries/store.$version.index.tsx",
+      "parent": "/$lang/_libraries"
+    },
+    "/$lang/_libraries/table/$version/": {
+      "filePath": "$lang/_libraries/table.$version.index.tsx",
+      "parent": "/$lang/_libraries"
+    },
+    "/$lang/_libraries/virtual/$version/": {
+      "filePath": "$lang/_libraries/virtual.$version.index.tsx",
+      "parent": "/$lang/_libraries"
+    },
+    "/$lang/$libraryId/$version/docs/framework/$framework/$": {
+      "filePath": "$lang/$libraryId/$version.docs.framework.$framework.$.tsx",
+      "parent": "/$lang/$libraryId/$version/docs"
+    },
+    "/$lang/$libraryId/$version/docs/framework/$framework/examples/$": {
+      "filePath": "$lang/$libraryId/$version.docs.framework.$framework.examples.$.tsx",
+      "parent": "/$lang/$libraryId/$version/docs"
     }
   }
 }

@@ -168,7 +168,7 @@ export default function CookieConsent() {
               (which is a large part of how TanStack OSS remains free forever)
             </strong>
             . See our{' '}
-            <Link to="/privacy" className="underline">
+            <Link to="/en/privacy" className="underline">
               Privacy Policy
             </Link>{' '}
             for details.

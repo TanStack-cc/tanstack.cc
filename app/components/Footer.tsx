@@ -18,11 +18,11 @@ const footerLinks = [
   },
   {
     label: 'Privacy Policy',
-    to: '/privacy',
+    to: '/en/privacy',
   },
   {
     label: 'Terms of Service',
-    to: '/terms',
+    to: '/en/terms',
   },
 ]
 
