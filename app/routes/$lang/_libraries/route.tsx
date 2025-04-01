@@ -20,6 +20,7 @@ import { ClientOnlySearchButton } from '~/components/ClientOnlySearchButton'
 import { ThemeToggle, useThemeStore } from '~/components/ThemeToggle'
 import { TbBrandBluesky, TbBrandTwitter } from 'react-icons/tb'
 import { BiSolidCheckShield } from 'react-icons/bi'
+import { TranslateToggle } from '~/components/TranslateToggle'
 
 export const Route = createFileRoute('/$lang/_libraries')({
   staleTime: Infinity,
@@ -333,6 +334,7 @@ function LibrariesLayout() {
           <OramaSearchBox {...searchBoxParams} colorScheme={oramaThemeMode} />
         </div>
       ) : null}
+      <TranslateToggle />
       {activeLibrary?.scarfId ? <Scarf id={activeLibrary.scarfId} /> : null}
     </div>
   )
