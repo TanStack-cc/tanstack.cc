@@ -1,5 +1,6 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router'
 import { Scarf } from '~/components/Scarf'
+import { TranslateToggle } from '~/components/TranslateToggle'
 import { getLibrary } from '~/libraries'
 import { seo } from '~/utils/seo'
 
@@ -34,6 +35,7 @@ export default function RouteForm() {
   return (
     <>
       <Outlet />
+      <TranslateToggle />
       {library.scarfId ? <Scarf id={library.scarfId} /> : null}
     </>
   )

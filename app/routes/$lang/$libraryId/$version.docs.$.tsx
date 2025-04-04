@@ -8,15 +8,15 @@ import { DocContainer } from '~/components/DocContainer'
 export const Route = createFileRoute('/$lang/$libraryId/$version/docs/$')({
   staleTime: 1000 * 60 * 5,
   loader: (ctx) => {
-    const { _splat: docsPath, version, libraryId } = ctx.params
+    const { _splat: docsPath, version, libraryId, lang } = ctx.params
     const library = getLibrary(libraryId)
 
     return loadDocs({
       repo: library.repo,
       branch: getBranch(library, version),
-      docsPath: `${library.docsRoot || 'docs'}/${docsPath}`,
+      docsPath: lang === 'en' ? `${library.docsRoot || 'docs'}/${docsPath}` : `${library.docsRoot || 'docs'}/${lang}/${docsPath}`,
       currentPath: ctx.location.pathname,
-      redirectPath: `/${library.id}/${version}/docs/overview`,
+      redirectPath: `${lang}/${library.id}/${version}/docs/overview`,
     })
   },
   head: ({ loaderData, params }) => {

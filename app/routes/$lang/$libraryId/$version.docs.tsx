@@ -7,14 +7,17 @@ import { seo } from '~/utils/seo'
 export const Route = createFileRoute('/$lang/$libraryId/$version/docs')({
   staleTime: 1000 * 60 * 5,
   loader: async (ctx) => {
-    const { libraryId, version } = ctx.params
+    const { libraryId, version, lang } = ctx.params
     const library = getLibrary(libraryId)
     const branch = getBranch(library, version)
     const config = await getTanstackDocsConfig({
       data: {
         repo: library.repo,
         branch,
-        docsRoot: library.docsRoot || 'docs',
+        docsRoot:
+          lang === 'en'
+            ? library.docsRoot ?? 'docs'
+            : `${library.docsRoot ?? 'docs'}/${lang}`,
       },
     })
 

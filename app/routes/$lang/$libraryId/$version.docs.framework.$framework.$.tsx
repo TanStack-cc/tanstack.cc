@@ -11,18 +11,20 @@ export const Route = createFileRoute(
 )({
   staleTime: 1000 * 60 * 5,
   loader: (ctx) => {
-    const { _splat: docsPath, framework, version, libraryId } = ctx.params
+    const { _splat: docsPath, framework, version, libraryId, lang} = ctx.params
 
     const library = getLibrary(libraryId)
 
     return loadDocs({
       repo: library.repo,
       branch: getBranch(library, version),
-      docsPath: `${
+      docsPath: lang === 'en' ? `${
         library.docsRoot || 'docs'
-      }/framework/${framework}/${docsPath}`,
+      }/framework/${framework}/${docsPath}` : `${
+        library.docsRoot || 'docs'
+      }/${lang}/framework/${framework}/${docsPath}`,
       currentPath: ctx.location.pathname,
-      redirectPath: `/${library.id}/${version}/docs/overview`,
+      redirectPath: `${lang}/${library.id}/${version}/docs/overview`,
     })
   },
   component: Docs,
